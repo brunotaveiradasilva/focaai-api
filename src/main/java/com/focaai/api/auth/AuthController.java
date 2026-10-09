@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,6 +48,13 @@ public class AuthController {
     public UsuarioResumo eu(@AuthenticationPrincipal Jwt jwt) {
         return usuarios.findById(UsuarioAtual.id(jwt)).map(UsuarioResumo::de)
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Conta não encontrada."));
+    }
+
+    /** Exclui a conta e todos os dados dela. Exigido pelas lojas de apps para quem cria conta. */
+    @DeleteMapping("/eu")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void excluirConta(@AuthenticationPrincipal Jwt jwt) {
+        auth.excluirConta(UsuarioAtual.id(jwt));
     }
 
     public record EntrarComGoogle(@NotBlank String idToken) {

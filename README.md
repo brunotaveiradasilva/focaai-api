@@ -88,3 +88,19 @@ FocaAI, crie credenciais **ID do cliente OAuth** do tipo:
 
 Coloque os client IDs em `GOOGLE_CLIENT_IDS`, separados por vírgula. Sem eles a API sobe, mas
 recusa todo login.
+
+## Dados do aluno
+
+Tudo em `/api/eu/...` é do aluno logado. Os campos JSON têm os mesmos nomes do store do app.
+
+| Endpoint | O que faz |
+|---|---|
+| `GET /api/eu/estado` | Perfil, progresso por assunto, foco e reforço por matéria e os últimos ajustes. `profile: null` = ainda não fez o onboarding |
+| `PUT /api/eu/perfil` | Fim do onboarding. No primeiro, as matérias que o aluno domina começam com o primeiro grupo feito; refazer só troca o perfil |
+| `PATCH /api/eu/perfil` | Muda só os campos enviados (ex.: `{"minutesPerDay": 120}`) |
+| `PUT /api/eu/progresso/{assunto}` | `{"done": true}` marca o assunto como feito; `false` volta para zero |
+| `PUT` / `DELETE /api/eu/foco/{materia}` | Escolhe (`{"topicId": "..."}`) ou tira o assunto de foco da matéria |
+| `POST /api/eu/checkins` | Registra o estudo. A API avalia (aulas creditadas, reforço da matéria e o ajuste explicado ao aluno) e devolve o estado novo. Mandar um `id` próprio evita duplicar se o app reenviar |
+| `GET /api/eu/checkins` | Histórico de check-ins |
+| `DELETE /api/eu/dados` | "Começar do zero": apaga o estudo e mantém a conta |
+| `DELETE /api/eu` | Exclui a conta e tudo dela |
