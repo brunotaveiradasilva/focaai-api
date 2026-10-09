@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.focaai.api.aluno.AlunoService;
 import com.focaai.api.aluno.CheckinDoAluno;
 import com.focaai.api.conteudo.Catalogo;
+import com.focaai.api.conteudo.TopicoNoRoteiro;
 import com.focaai.api.plano.Planejador;
 import com.focaai.api.simulado.SimuladoService;
 
@@ -35,7 +36,8 @@ public class EstatisticasService {
     /** Tudo da tela Evolução (e a sequência e os minutos de hoje da tela Início), nos últimos {@code dias}. */
     @Transactional(readOnly = true)
     public Resumo resumo(UUID usuarioId, LocalDate hoje, ZoneId fuso, int dias) {
-        Set<Integer> diasDeEstudo = planejador.diasDeEstudo(alunos.dados(usuarioId).perfil());
+        AlunoService.DadosDoAluno aluno = alunos.dados(usuarioId);
+        Set<Integer> diasDeEstudo = planejador.diasDeEstudo(aluno.perfil());
         List<CheckinDoAluno> checkins = alunos.checkins(usuarioId);
         List<Estatisticas.SimuladoFeito> feitos = simulados.finalizados(usuarioId).stream()
                 .map(s -> new Estatisticas.SimuladoFeito(s.finishedAt(), s.score()))
@@ -51,7 +53,21 @@ public class EstatisticasService {
                 Estatisticas.questoes(checkins, feitos),
                 Estatisticas.acertoPorArea(catalogo.areas(), feitos),
                 checkins.size(),
-                feitos.size());
+                feitos.size(),
+                roadmap(aluno));
+    }
+
+    /** Aulas feitas sobre o total do roadmap de cada matéria, nas provas que o aluno segue. */
+    private List<ProgressoNaMateria> roadmap(AlunoService.DadosDoAluno aluno) {
+        return catalogo.materias().stream().map(m -> {
+            int feitas = 0;
+            int total = 0;
+            for (TopicoNoRoteiro t : catalogo.roteiro(m.id(), aluno.perfil().provas())) {
+                feitas += Math.min(t.lessons(), aluno.progresso().getOrDefault(t.id(), 0));
+                total += t.lessons();
+            }
+            return new ProgressoNaMateria(m.id(), feitas, total);
+        }).toList();
     }
 
     /**
@@ -59,6 +75,7 @@ public class EstatisticasService {
      * @param minutesBySubject minutos por matéria no período
      * @param checkins       quantos check-ins o aluno tem no total
      * @param simulados      quantos simulados finalizados
+     * @param roadmap        aulas feitas e total do roadmap de cada matéria
      */
     @JsonInclude(JsonInclude.Include.ALWAYS)
     public record Resumo(
@@ -71,6 +88,10 @@ public class EstatisticasService {
             Estatisticas.TotalDeQuestoes questions,
             List<Estatisticas.AcertoNaArea> areas,
             int checkins,
-            int simulados) {
+            int simulados,
+            List<ProgressoNaMateria> roadmap) {
+    }
+
+    public record ProgressoNaMateria(String subject, int done, int total) {
     }
 }
