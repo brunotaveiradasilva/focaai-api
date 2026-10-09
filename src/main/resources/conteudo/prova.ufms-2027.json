@@ -1,0 +1,302 @@
+{
+ "aviso": "Dados extraídos do Edital nº 344/2026-PROGRAD/UFMS (25/08/2026). Datas \"previstas\" podem ser ajustadas pela UFMS: reconferir antes de exibir ao aluno. Esta amostra de pesos tem 33 dos cursos do Anexo II; o restante precisa ser importado.",
+ "exam": "Vestibular UFMS 2027",
+ "organizadora": "Fapec",
+ "edital": "https://ingresso.ufms.br/files/2026/09/edital_prograd_344_1.pdf",
+ "verificado_em": "2026-10-07",
+ "datas": [
+  {
+   "label": "Inscrições",
+   "inicio": "2026-08-27",
+   "fim": "2026-11-12"
+  },
+  {
+   "label": "Último dia de pagamento da taxa",
+   "data": "2026-11-13"
+  },
+  {
+   "label": "Treino da prova digital",
+   "inicio": "2026-11-30",
+   "fim": "2026-12-03"
+  },
+  {
+   "label": "Prova objetiva e redação",
+   "data": "2026-12-06",
+   "horario": "8h às 13h (MS), 9h às 14h (Brasília)"
+  },
+  {
+   "label": "Gabarito preliminar",
+   "data": "2026-12-08"
+  },
+  {
+   "label": "Gabarito definitivo",
+   "data": "2027-01-06"
+  },
+  {
+   "label": "Resultado final",
+   "data": "2027-01-22"
+  }
+ ],
+ "estrutura": {
+  "objetiva": {
+   "questoes": 60,
+   "por_competencia": 15,
+   "competencias": [
+    "Ciências da Natureza",
+    "Ciências Humanas",
+    "Linguagens",
+    "Matemática"
+   ],
+   "pontos_por_questao": 2,
+   "alternativas": 5
+  },
+  "redacao": {
+   "pontos": 1000,
+   "linhas": "15 a 30 (presencial)"
+  },
+  "duracao_horas": 5,
+  "taxa_inscricao_reais": 100,
+  "nota": "escore padronizado por competência: EP = 500 + 100(A−M)/D"
+ },
+ "outras_provas_a_confirmar": [
+  {
+   "nome": "PASSE UFMS",
+   "data": "2026-12-13",
+   "fonte": "https://ingresso.ufms.br/passe/",
+   "status": "a confirmar no edital do PASSE"
+  }
+ ],
+ "pesos_por_curso": {
+  "ADMINISTRAÇÃO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 1
+  },
+  "AGRONOMIA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ARQUITETURA E URBANISMO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 1
+  },
+  "CIÊNCIA DA COMPUTAÇÃO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 2,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "CIÊNCIAS BIOLÓGICAS - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "CIÊNCIAS CONTÁBEIS - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 1,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "CIÊNCIAS ECONÔMICAS - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 1,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "DIREITO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 2,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "ENFERMAGEM - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA AMBIENTAL - BACHARELADO": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA CIVIL - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA DE COMPUTAÇÃO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA DE PRODUÇÃO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA DE SOFTWARE - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 2,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA ELÉTRICA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 4,
+   "LIN": 2,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "ENGENHARIA QUÍMICA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "FARMÁCIA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "FÍSICA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 3
+  },
+  "FISIOTERAPIA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 2,
+   "NAT": 2
+  },
+  "GEOGRAFIA - LICENCIATURA": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 2,
+   "NAT": 2
+  },
+  "HISTÓRIA - LICENCIATURA": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 2,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "INTELIGÊNCIA ARTIFICIAL - BACHARELADO": {
+   "RED": 2,
+   "MAT": 3,
+   "LIN": 2,
+   "HUM": 1,
+   "NAT": 2
+  },
+  "JORNALISMO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 2,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "LETRAS - PORTUGUÊS/INGLÊS - LICENCIATURA": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 2,
+   "HUM": 1,
+   "NAT": 1
+  },
+  "MATEMÁTICA - LICENCIATURA": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 1
+  },
+  "MEDICINA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 2,
+   "HUM": 2,
+   "NAT": 3
+  },
+  "MEDICINA VETERINÁRIA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 3
+  },
+  "NUTRIÇÃO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 2,
+   "NAT": 3
+  },
+  "ODONTOLOGIA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 2,
+   "HUM": 2,
+   "NAT": 3
+  },
+  "PEDAGOGIA - LICENCIATURA": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 2,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "PSICOLOGIA - BACHARELADO": {
+   "RED": 2,
+   "MAT": 1,
+   "LIN": 1,
+   "HUM": 2,
+   "NAT": 1
+  },
+  "QUÍMICA - LICENCIATURA": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 1,
+   "HUM": 1,
+   "NAT": 3
+  },
+  "SISTEMAS DE INFORMAÇÃO - BACHARELADO": {
+   "RED": 2,
+   "MAT": 2,
+   "LIN": 2,
+   "HUM": 1,
+   "NAT": 1
+  }
+ }
+}

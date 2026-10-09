@@ -1,0 +1,533 @@
+{
+  "materias": [
+    {
+      "id": "mat",
+      "name": "Matemática",
+      "short": "Mat",
+      "color": "#3FE0F0"
+    },
+    {
+      "id": "por",
+      "name": "Português",
+      "short": "Port",
+      "color": "#7C8CF8"
+    },
+    {
+      "id": "red",
+      "name": "Redação",
+      "short": "Red",
+      "color": "#C58CF8"
+    },
+    {
+      "id": "fis",
+      "name": "Física",
+      "short": "Fís",
+      "color": "#E8B34D"
+    },
+    {
+      "id": "qui",
+      "name": "Química",
+      "short": "Quí",
+      "color": "#F0A35E"
+    },
+    {
+      "id": "bio",
+      "name": "Biologia",
+      "short": "Bio",
+      "color": "#6FD49A"
+    },
+    {
+      "id": "his",
+      "name": "História",
+      "short": "His",
+      "color": "#AEBBCB"
+    },
+    {
+      "id": "geo",
+      "name": "Geografia",
+      "short": "Geo",
+      "color": "#5B8DEF"
+    }
+  ],
+  "areas": [
+    {
+      "id": "linguagens",
+      "name": "Linguagens",
+      "short": "LC",
+      "subjects": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "humanas",
+      "name": "Ciências Humanas",
+      "short": "CH",
+      "subjects": [
+        "his",
+        "geo"
+      ]
+    },
+    {
+      "id": "natureza",
+      "name": "Ciências da Natureza",
+      "short": "CN",
+      "subjects": [
+        "fis",
+        "qui",
+        "bio"
+      ]
+    },
+    {
+      "id": "matematica",
+      "name": "Matemática",
+      "short": "MT",
+      "subjects": [
+        "mat"
+      ]
+    }
+  ],
+  "cursos": [
+    {
+      "id": "medicina",
+      "name": "Medicina",
+      "tier": "muito-alta",
+      "focus": [
+        "bio",
+        "qui",
+        "red"
+      ]
+    },
+    {
+      "id": "direito",
+      "name": "Direito",
+      "tier": "alta",
+      "focus": [
+        "red",
+        "por",
+        "his"
+      ]
+    },
+    {
+      "id": "odontologia",
+      "name": "Odontologia",
+      "tier": "alta",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "veterinaria",
+      "name": "Medicina Veterinária",
+      "tier": "alta",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "psicologia",
+      "name": "Psicologia",
+      "tier": "alta",
+      "focus": [
+        "bio",
+        "red",
+        "por"
+      ]
+    },
+    {
+      "id": "computacao",
+      "name": "Ciência da Computação",
+      "tier": "alta",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "arquitetura",
+      "name": "Arquitetura e Urbanismo",
+      "tier": "alta",
+      "focus": [
+        "mat",
+        "his"
+      ]
+    },
+    {
+      "id": "ri",
+      "name": "Relações Internacionais",
+      "tier": "alta",
+      "focus": [
+        "his",
+        "geo",
+        "red"
+      ]
+    },
+    {
+      "id": "eng-civil",
+      "name": "Engenharia Civil",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "engenharias",
+      "name": "Outras engenharias",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis",
+        "qui"
+      ]
+    },
+    {
+      "id": "enfermagem",
+      "name": "Enfermagem",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "farmacia",
+      "name": "Farmácia",
+      "tier": "media",
+      "focus": [
+        "qui",
+        "bio"
+      ]
+    },
+    {
+      "id": "fisioterapia",
+      "name": "Fisioterapia",
+      "tier": "media",
+      "focus": [
+        "bio"
+      ]
+    },
+    {
+      "id": "nutricao",
+      "name": "Nutrição",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "biomedicina",
+      "name": "Biomedicina",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "administracao",
+      "name": "Administração",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "por"
+      ]
+    },
+    {
+      "id": "economia",
+      "name": "Economia",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "his"
+      ]
+    },
+    {
+      "id": "comunicacao",
+      "name": "Jornalismo / Publicidade",
+      "tier": "media",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "contabeis",
+      "name": "Ciências Contábeis",
+      "tier": "moderada",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "pedagogia",
+      "name": "Pedagogia",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "licenciaturas",
+      "name": "Licenciaturas",
+      "tier": "moderada",
+      "focus": []
+    },
+    {
+      "id": "agrarias",
+      "name": "Agronomia / Zootecnia",
+      "tier": "moderada",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "outro",
+      "name": "Outro curso / ainda não sei",
+      "tier": "media",
+      "focus": []
+    }
+  ],
+  "concorrencia": {
+    "muito-alta": {
+      "label": "Muito alta",
+      "desc": "Disputa por poucas vagas e notas de corte entre as mais altas. Seu plano tem mais questões, simulado toda semana e duas redações semanais.",
+      "simuladosPerMonth": 4,
+      "redacoesPerWeek": 2,
+      "questionShare": 0.5
+    },
+    "alta": {
+      "label": "Alta",
+      "desc": "Concorrência forte. O plano equilibra teoria e muitas questões, com simulado toda semana.",
+      "simuladosPerMonth": 4,
+      "redacoesPerWeek": 1,
+      "questionShare": 0.45
+    },
+    "media": {
+      "label": "Média",
+      "desc": "Concorrência moderada a forte, dependendo da instituição. Simulado a cada duas semanas.",
+      "simuladosPerMonth": 2,
+      "redacoesPerWeek": 1,
+      "questionShare": 0.4
+    },
+    "moderada": {
+      "label": "Moderada",
+      "desc": "Notas de corte mais acessíveis. O foco é construir base sólida com constância.",
+      "simuladosPerMonth": 2,
+      "redacoesPerWeek": 1,
+      "questionShare": 0.35
+    }
+  },
+  "provas": [
+    {
+      "id": "enem",
+      "name": "ENEM 2026",
+      "kind": "enem",
+      "cycle": 2026,
+      "phases": [
+        {
+          "label": "1º dia",
+          "dates": [
+            "2026-11-08"
+          ]
+        },
+        {
+          "label": "2º dia",
+          "dates": [
+            "2026-11-15"
+          ]
+        }
+      ],
+      "source": "Edital Inep, 22/05/2026",
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "id": "fuvest",
+      "name": "Fuvest 2027 (USP)",
+      "kind": "vestibular",
+      "cycle": 2026,
+      "phases": [
+        {
+          "label": "1ª fase",
+          "dates": [
+            "2026-11-01"
+          ]
+        },
+        {
+          "label": "2ª fase",
+          "dates": [
+            "2026-12-06",
+            "2026-12-07"
+          ]
+        }
+      ],
+      "source": "Fuvest, calendário remarcado após o edital do ENEM 2026",
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "id": "unicamp",
+      "name": "Unicamp 2027",
+      "kind": "vestibular",
+      "cycle": 2026,
+      "phases": [
+        {
+          "label": "1ª fase",
+          "dates": [
+            "2026-10-18"
+          ]
+        },
+        {
+          "label": "2ª fase",
+          "dates": [
+            "2026-11-29",
+            "2026-11-30"
+          ]
+        }
+      ],
+      "source": "Comvest/Unicamp",
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "id": "unesp",
+      "name": "Unesp 2027",
+      "kind": "vestibular",
+      "cycle": 2026,
+      "phases": [
+        {
+          "label": "1ª fase",
+          "dates": [
+            "2026-11-22"
+          ]
+        },
+        {
+          "label": "2ª fase",
+          "dates": [
+            "2026-12-13",
+            "2026-12-14"
+          ]
+        }
+      ],
+      "source": "Vunesp, calendário remarcado após o edital do ENEM 2026",
+      "checkedAt": "2026-10-06"
+    },
+    {
+      "id": "ufms",
+      "name": "Vestibular UFMS 2027",
+      "kind": "vestibular",
+      "cycle": 2026,
+      "phases": [
+        {
+          "label": "Prova objetiva e redação",
+          "dates": [
+            "2026-12-06"
+          ]
+        }
+      ],
+      "source": "Edital nº 344/2026-PROGRAD/UFMS",
+      "checkedAt": "2026-10-07"
+    }
+  ],
+  "vestibulares": [
+    {
+      "id": "fuvest",
+      "name": "Fuvest (USP)"
+    },
+    {
+      "id": "unicamp",
+      "name": "Unicamp"
+    },
+    {
+      "id": "unesp",
+      "name": "Unesp"
+    },
+    {
+      "id": "ufms",
+      "name": "UFMS"
+    }
+  ],
+  "ciclos": [
+    2026,
+    2027
+  ],
+  "trilhas": {
+    "enem": "ENEM",
+    "vestibulares": "Vestibulares",
+    "ambos": "ENEM + vestibulares"
+  },
+  "aulasPorTopico": 3,
+  "materiaHospedeira": {
+    "lin": "por",
+    "art": "por",
+    "edf": "por",
+    "fil": "his",
+    "soc": "his"
+  },
+  "nomesExtras": {
+    "art": "Artes",
+    "art.linguagens-artisticas": "Linguagens artísticas",
+    "edf": "Educação Física",
+    "edf.linguagem-corporal": "Linguagem corporal",
+    "bio.ciencia-e-sociedade": "Ciência e sociedade",
+    "his.cultura-e-sociedade": "Cultura e sociedade"
+  },
+  "editalDaProva": {
+    "enem": "enem",
+    "ufms": "ufms-2027"
+  },
+  "pesoSemMapeamento": 0.5,
+  "retaFinal": [
+    {
+      "subject": "mat",
+      "title": "Simulados de Matemática",
+      "lessons": 4,
+      "desc": "Simulados cronometrados com questões reais de provas anteriores."
+    },
+    {
+      "subject": "por",
+      "title": "Simulados de Linguagens",
+      "lessons": 3,
+      "desc": "Provas anteriores completas."
+    },
+    {
+      "subject": "red",
+      "title": "Redações cronometradas",
+      "lessons": 6,
+      "desc": "Uma redação por semana com tema de prova anterior."
+    },
+    {
+      "subject": "fis",
+      "title": "Simulados de Física",
+      "lessons": 3,
+      "desc": "Questões de provas anteriores."
+    },
+    {
+      "subject": "qui",
+      "title": "Simulados de Química",
+      "lessons": 3,
+      "desc": "Questões de provas anteriores."
+    },
+    {
+      "subject": "bio",
+      "title": "Simulados de Biologia",
+      "lessons": 3,
+      "desc": "Questões de provas anteriores."
+    },
+    {
+      "subject": "his",
+      "title": "Simulados de História",
+      "lessons": 3,
+      "desc": "Questões de provas anteriores."
+    },
+    {
+      "subject": "geo",
+      "title": "Simulados de Geografia",
+      "lessons": 3,
+      "desc": "Questões de provas anteriores."
+    }
+  ]
+}

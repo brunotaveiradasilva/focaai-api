@@ -1,0 +1,1023 @@
+{
+ "aviso": "Mapeamento feito a partir do ANEXO \"Objetos de conhecimento\" da Matriz de Referência do ENEM (PDF do Inep enviado pelo usuário). A matriz não dá peso por tópico: 1.0 = objeto citado explicitamente; 0.5 = citado de forma parcial ou inferido. Redação: a Matriz não traz os critérios (estão na Cartilha do Participante), então a seção de Redação usa o Eixo V (propostas de intervenção) e é provisória. Peso real de incidência = análise de provas anteriores. Revisão de professor pendente.",
+ "exam": "ENEM",
+ "fonte": "download.inep.gov.br/download/enem/matriz_referencia.pdf",
+ "revisado_por": null,
+ "topicos": [
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.operacoes-e-propriedades",
+   "nome": "Operações e propriedades",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.fracoes-decimais-e-porcentagem",
+   "nome": "Frações, decimais e porcentagem",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.razao-proporcao-e-regra-de-tres",
+   "nome": "Razão, proporção e regra de três",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.juros-simples-e-compostos",
+   "nome": "Juros simples e compostos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.funcoes.sequencias-pa-e-pg",
+   "nome": "Sequências: PA e PG",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.contagem-probabilidade-e-estatistica.principios-de-contagem",
+   "nome": "Princípios de contagem",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.contagem-probabilidade-e-estatistica.permutacoes-arranjos-e-combinacoes",
+   "nome": "Permutações, arranjos e combinações",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.grandezas-unidades-de-medida-e-escalas",
+   "nome": "Grandezas, unidades de medida e escalas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.multiplos-divisores-mmc-e-mdc",
+   "nome": "Múltiplos, divisores, MMC e MDC",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.expressoes-algebricas-e-produtos-notaveis",
+   "nome": "Expressões algébricas e produtos notáveis",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.equacoes-e-sistemas-do-1-grau",
+   "nome": "Equações e sistemas do 1º grau",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.potenciacao-e-radiciacao",
+   "nome": "Potenciação e radiciação",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.aritmetica-e-algebra-basica.notacao-cientifica",
+   "nome": "Notação científica",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.geometria-plana.angulos-e-paralelas",
+   "nome": "Ângulos e paralelas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-plana.triangulos-e-semelhanca",
+   "nome": "Triângulos e semelhança",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-plana.teorema-de-pitagoras-e-relacoes-metricas",
+   "nome": "Teorema de Pitágoras e relações métricas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-plana.quadrilateros",
+   "nome": "Quadriláteros",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-plana.circunferencia-e-circulo",
+   "nome": "Circunferência e círculo",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-plana.areas-e-perimetros",
+   "nome": "Áreas e perímetros",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-plana.poligonos-regulares",
+   "nome": "Polígonos regulares",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.geometria-espacial.prismas-e-cilindros",
+   "nome": "Prismas e cilindros",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.geometria-espacial.piramides-e-cones",
+   "nome": "Pirâmides e cones",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.geometria-espacial.esfera",
+   "nome": "Esfera",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.geometria-espacial.volumes-e-areas-de-superficie",
+   "nome": "Volumes e áreas de superfície",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-analitica.ponto-e-reta",
+   "nome": "Ponto e reta",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.geometria-analitica.circunferencia-no-plano",
+   "nome": "Circunferência no plano",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.algebra-avancada.sistemas-lineares",
+   "nome": "Sistemas lineares",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.trigonometria.triangulo-retangulo",
+   "nome": "Triângulo retângulo",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.trigonometria.ciclo-trigonometrico",
+   "nome": "Ciclo trigonométrico",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.trigonometria.funcoes-trigonometricas",
+   "nome": "Funções trigonométricas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.funcoes.conceito-de-funcao-e-graficos",
+   "nome": "Conceito de função e gráficos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.funcoes.funcao-afim",
+   "nome": "Função afim",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.funcoes.funcao-quadratica",
+   "nome": "Função quadrática",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.funcoes.funcao-exponencial",
+   "nome": "Função exponencial",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.funcoes.funcao-logaritmica",
+   "nome": "Função logarítmica",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.algebra-avancada.polinomios",
+   "nome": "Polinômios",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "mat.funcoes.inequacoes",
+   "nome": "Inequações",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.contagem-probabilidade-e-estatistica.probabilidade",
+   "nome": "Probabilidade",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.contagem-probabilidade-e-estatistica.media-mediana-e-moda",
+   "nome": "Média, mediana e moda",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.contagem-probabilidade-e-estatistica.desvio-padrao-e-dispersao",
+   "nome": "Desvio padrão e dispersão",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "mat.contagem-probabilidade-e-estatistica.leitura-de-graficos-e-tabelas",
+   "nome": "Leitura de gráficos e tabelas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.grandezas-vetores-e-unidades",
+   "nome": "Grandezas, vetores e unidades",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.cinematica-escalar",
+   "nome": "Cinemática escalar",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.cinematica-vetorial-e-lancamentos",
+   "nome": "Cinemática vetorial e lançamentos",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "fis.mecanica.leis-de-newton",
+   "nome": "Leis de Newton",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.atrito-e-plano-inclinado",
+   "nome": "Atrito e plano inclinado",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.trabalho-energia-e-potencia",
+   "nome": "Trabalho, energia e potência",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.impulso-e-quantidade-de-movimento",
+   "nome": "Impulso e quantidade de movimento",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.gravitacao",
+   "nome": "Gravitação",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.estatica-e-equilibrio",
+   "nome": "Estática e equilíbrio",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.mecanica.hidrostatica",
+   "nome": "Hidrostática",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.termologia.termometria-e-dilatacao",
+   "nome": "Termometria e dilatação",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.termologia.calorimetria",
+   "nome": "Calorimetria",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.termologia.mudancas-de-estado",
+   "nome": "Mudanças de estado",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.termologia.gases-e-termodinamica",
+   "nome": "Gases e termodinâmica",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.termologia.transmissao-de-calor",
+   "nome": "Transmissão de calor",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.ondas-e-optica.movimento-ondulatorio",
+   "nome": "Movimento ondulatório",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.ondas-e-optica.optica-geometrica-reflexao",
+   "nome": "Óptica geométrica: reflexão",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.ondas-e-optica.optica-geometrica-refracao-e-lentes",
+   "nome": "Óptica geométrica: refração e lentes",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.eletricidade-e-magnetismo.eletrostatica",
+   "nome": "Eletrostática",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.eletricidade-e-magnetismo.campo-e-potencial-eletrico",
+   "nome": "Campo e potencial elétrico",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.eletricidade-e-magnetismo.corrente-resistencia-e-lei-de-ohm",
+   "nome": "Corrente, resistência e Lei de Ohm",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.eletricidade-e-magnetismo.circuitos-eletricos",
+   "nome": "Circuitos elétricos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.eletricidade-e-magnetismo.potencia-e-consumo-de-energia",
+   "nome": "Potência e consumo de energia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fis.eletricidade-e-magnetismo.magnetismo-e-eletromagnetismo",
+   "nome": "Magnetismo e eletromagnetismo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "fis.fisica-moderna.radioatividade-e-fisica-nuclear",
+   "nome": "Radioatividade e física nuclear",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "fis.ondas-e-optica.acustica",
+   "nome": "Acústica",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "fis.ondas-e-optica.optica-da-visao",
+   "nome": "Óptica da visão",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "qui.quimica-geral.materia-e-substancias",
+   "nome": "Matéria e substâncias",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-geral.modelos-atomicos",
+   "nome": "Modelos atômicos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-geral.tabela-periodica-e-propriedades",
+   "nome": "Tabela periódica e propriedades",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-geral.ligacoes-quimicas",
+   "nome": "Ligações químicas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-geral.geometria-e-polaridade-molecular",
+   "nome": "Geometria e polaridade molecular",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-geral.funcoes-inorganicas",
+   "nome": "Funções inorgânicas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-geral.reacoes-quimicas-e-balanceamento",
+   "nome": "Reações químicas e balanceamento",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.estequiometria",
+   "nome": "Estequiometria",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.solucoes-e-concentracao",
+   "nome": "Soluções e concentração",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.propriedades-coligativas",
+   "nome": "Propriedades coligativas",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "qui.fisico-quimica.termoquimica",
+   "nome": "Termoquímica",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.cinetica-quimica",
+   "nome": "Cinética química",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.equilibrio-quimico",
+   "nome": "Equilíbrio químico",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.ph-e-poh",
+   "nome": "pH e pOH",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.eletroquimica",
+   "nome": "Eletroquímica",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-organica.funcoes-organicas",
+   "nome": "Funções orgânicas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-organica.reacoes-organicas",
+   "nome": "Reações orgânicas",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "qui.quimica-organica.polimeros-e-biomoleculas",
+   "nome": "Polímeros e biomoléculas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-ambiental-e-do-cotidiano.poluicao-e-ciclos-biogeoquimicos",
+   "nome": "Poluição e ciclos biogeoquímicos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-ambiental-e-do-cotidiano.combustiveis-e-energia",
+   "nome": "Combustíveis e energia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-ambiental-e-do-cotidiano.separacao-de-misturas",
+   "nome": "Separação de misturas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.quimica-ambiental-e-do-cotidiano.radioatividade",
+   "nome": "Radioatividade",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "qui.fisico-quimica.gases-e-leis-dos-gases",
+   "nome": "Gases e leis dos gases",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.origem-da-vida",
+   "nome": "Origem da vida",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.composicao-quimica-da-celula",
+   "nome": "Composição química da célula",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.membrana-e-transportes",
+   "nome": "Membrana e transportes",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.organelas-e-metabolismo-energetico",
+   "nome": "Organelas e metabolismo energético",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.nucleo-e-divisao-celular",
+   "nome": "Núcleo e divisão celular",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.histologia",
+   "nome": "Histologia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.citologia-e-bioquimica.embriologia-e-ciclos-de-vida",
+   "nome": "Embriologia e ciclos de vida",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.biologia-molecular",
+   "nome": "Biologia molecular",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.biotecnologia-e-engenharia-genetica",
+   "nome": "Biotecnologia e engenharia genética",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.leis-de-mendel",
+   "nome": "Leis de Mendel",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.heredograma-e-probabilidade",
+   "nome": "Heredograma e probabilidade",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.heranca-ligada-ao-sexo-e-grupos-sanguineos",
+   "nome": "Herança ligada ao sexo e grupos sanguíneos",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.genetica-de-populacoes",
+   "nome": "Genética de populações",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.evolucao-e-selecao-natural",
+   "nome": "Evolução e seleção natural",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.seres-vivos.sistematica-e-classificacao",
+   "nome": "Sistemática e classificação",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.seres-vivos.virus-bacterias-e-protozoarios",
+   "nome": "Vírus, bactérias e protozoários",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.seres-vivos.fungos",
+   "nome": "Fungos",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.seres-vivos.botanica",
+   "nome": "Botânica",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.seres-vivos.zoologia-de-invertebrados",
+   "nome": "Zoologia de invertebrados",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.seres-vivos.zoologia-de-vertebrados",
+   "nome": "Zoologia de vertebrados",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.fisiologia-e-saude.sistemas-digestorio-e-respiratorio",
+   "nome": "Sistemas digestório e respiratório",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.fisiologia-e-saude.sistemas-circulatorio-e-excretor",
+   "nome": "Sistemas circulatório e excretor",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.fisiologia-e-saude.sistemas-nervoso-e-endocrino",
+   "nome": "Sistemas nervoso e endócrino",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.fisiologia-e-saude.sistema-imunologico-e-vacinas",
+   "nome": "Sistema imunológico e vacinas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.fisiologia-e-saude.reproducao-humana",
+   "nome": "Reprodução humana",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.fisiologia-e-saude.doencas-e-saude-publica",
+   "nome": "Doenças e saúde pública",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.ecologia.cadeias-e-fluxo-de-energia",
+   "nome": "Cadeias e fluxo de energia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.ecologia.relacoes-ecologicas",
+   "nome": "Relações ecológicas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.ecologia.ciclos-biogeoquimicos",
+   "nome": "Ciclos biogeoquímicos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.ecologia.biomas-brasileiros",
+   "nome": "Biomas brasileiros",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.ecologia.impactos-ambientais-e-sustentabilidade",
+   "nome": "Impactos ambientais e sustentabilidade",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.ecologia.dinamica-de-populacoes",
+   "nome": "Dinâmica de populações",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "bio.genetica-e-evolucao.efeitos-biologicos-das-radiacoes",
+   "nome": "Efeitos biológicos das radiações",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "bio.ciencia-e-sociedade.comunicacao-e-divulgacao-cientifica",
+   "nome": "Comunicação e divulgação científica",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-geral.antiguidade-classica",
+   "nome": "Antiguidade clássica",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.idade-media-e-feudalismo",
+   "nome": "Idade Média e feudalismo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-geral.renascimento-e-reforma",
+   "nome": "Renascimento e Reforma",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-geral.absolutismo-e-mercantilismo",
+   "nome": "Absolutismo e Mercantilismo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-geral.revolucoes-industrial-e-francesa",
+   "nome": "Revoluções Industrial e Francesa",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.imperialismo-e-neocolonialismo",
+   "nome": "Imperialismo e neocolonialismo",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.primeira-guerra-mundial",
+   "nome": "Primeira Guerra Mundial",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.entreguerras-e-totalitarismos",
+   "nome": "Entreguerras e totalitarismos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.segunda-guerra-mundial",
+   "nome": "Segunda Guerra Mundial",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.guerra-fria",
+   "nome": "Guerra Fria",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-geral.mundo-contemporaneo-e-globalizacao",
+   "nome": "Mundo contemporâneo e globalização",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.povos-originarios-e-colonizacao",
+   "nome": "Povos originários e colonização",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.economia-acucareira-e-escravidao",
+   "nome": "Economia açucareira e escravidão",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.mineracao-e-crises-do-sistema-colonial",
+   "nome": "Mineração e crises do sistema colonial",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.independencia",
+   "nome": "Independência",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.primeiro-e-segundo-reinados",
+   "nome": "Primeiro e Segundo Reinados",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.abolicao-e-proclamacao-da-republica",
+   "nome": "Abolição e Proclamação da República",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-do-brasil.republica-velha",
+   "nome": "República Velha",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-do-brasil.era-vargas",
+   "nome": "Era Vargas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.historia-do-brasil.ditadura-militar",
+   "nome": "Ditadura Militar",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.historia-do-brasil.redemocratizacao-e-nova-republica",
+   "nome": "Redemocratização e Nova República",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "his.america-e-africa.america-pre-colombiana-e-colonizacao",
+   "nome": "América pré-colombiana e colonização",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.america-e-africa.independencias-latino-americanas",
+   "nome": "Independências latino-americanas",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.america-e-africa.revolucoes-e-ditaduras-na-america-latina",
+   "nome": "Revoluções e ditaduras na América Latina",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.america-e-africa.africa-colonizacao-e-independencias",
+   "nome": "África: colonização e independências",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "his.cultura-e-sociedade.patrimonio-e-diversidade-cultural",
+   "nome": "Patrimônio e diversidade cultural",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-fisica.cartografia-e-orientacao",
+   "nome": "Cartografia e orientação",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-fisica.geologia-e-relevo",
+   "nome": "Geologia e relevo",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-fisica.clima-e-meteorologia",
+   "nome": "Clima e meteorologia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-fisica.hidrografia",
+   "nome": "Hidrografia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-fisica.biomas-e-vegetacao",
+   "nome": "Biomas e vegetação",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-fisica.questoes-ambientais",
+   "nome": "Questões ambientais",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-humana.populacao-e-demografia",
+   "nome": "População e demografia",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "geo.geografia-humana.migracoes",
+   "nome": "Migrações",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-humana.urbanizacao",
+   "nome": "Urbanização",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-humana.espaco-agrario-e-agronegocio",
+   "nome": "Espaço agrário e agronegócio",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-humana.industria-e-energia",
+   "nome": "Indústria e energia",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geografia-humana.transportes-e-redes",
+   "nome": "Transportes e redes",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "geo.geopolitica-e-mundo.globalizacao-e-blocos-economicos",
+   "nome": "Globalização e blocos econômicos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geopolitica-e-mundo.ordem-mundial-e-conflitos",
+   "nome": "Ordem mundial e conflitos",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "geo.geopolitica-e-mundo.geografia-do-brasil-e-do-mato-grosso-do-sul",
+   "nome": "Geografia do Brasil e do Mato Grosso do Sul",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "fil.filosofia.filosofia-politica",
+   "nome": "Filosofia política",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "fil.filosofia.etica-e-moral",
+   "nome": "Ética e moral",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "soc.sociologia.cultura-e-identidade",
+   "nome": "Cultura e identidade",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "soc.sociologia.desigualdade-e-movimentos-sociais",
+   "nome": "Desigualdade e movimentos sociais",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "soc.sociologia.trabalho-estado-e-cidadania",
+   "nome": "Trabalho, Estado e cidadania",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "soc.sociologia.classicos-durkheim-weber-e-marx",
+   "nome": "Clássicos: Durkheim, Weber e Marx",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "soc.sociologia.sociedade-brasileira",
+   "nome": "Sociedade brasileira",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.lingua.interpretacao-de-texto",
+   "nome": "Interpretação de texto",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "por.lingua.generos-e-tipologia-textual",
+   "nome": "Gêneros e tipologia textual",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "por.lingua.coesao-e-coerencia",
+   "nome": "Coesão e coerência",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "por.lingua.variacao-linguistica",
+   "nome": "Variação linguística",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "por.lingua.funcoes-da-linguagem",
+   "nome": "Funções da linguagem",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "por.lingua.figuras-de-linguagem",
+   "nome": "Figuras de linguagem",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.gramatica.concordancia-e-regencia",
+   "nome": "Concordância e regência",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.gramatica.crase-e-pontuacao",
+   "nome": "Crase e pontuação",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.gramatica.ortografia-e-semantica",
+   "nome": "Ortografia e semântica",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.gramatica.morfologia",
+   "nome": "Morfologia",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.gramatica.sintaxe-da-oracao-e-do-periodo",
+   "nome": "Sintaxe da oração e do período",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.literatura.trovadorismo-ao-barroco",
+   "nome": "Trovadorismo ao Barroco",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.literatura.arcadismo-e-romantismo",
+   "nome": "Arcadismo e Romantismo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.literatura.realismo-naturalismo-e-parnasianismo",
+   "nome": "Realismo, Naturalismo e Parnasianismo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.literatura.simbolismo-e-pre-modernismo",
+   "nome": "Simbolismo e Pré-Modernismo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.literatura.modernismo-e-contemporaneo",
+   "nome": "Modernismo e contemporâneo",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "por.lingua.generos-textuais-em-contexto-digital",
+   "nome": "Gêneros textuais em contexto digital",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "art.linguagens-artisticas.artes-visuais",
+   "nome": "Artes visuais",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "art.linguagens-artisticas.teatro-e-danca",
+   "nome": "Teatro e dança",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "art.linguagens-artisticas.musica",
+   "nome": "Música",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "lin.ingles-e-espanhol.compreensao-de-texto",
+   "nome": "Compreensão de texto",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "lin.ingles-e-espanhol.vocabulario-e-gramatica-em-contexto",
+   "nome": "Vocabulário e gramática em contexto",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "lin.ingles-e-espanhol.generos-e-variacao-linguistica",
+   "nome": "Gêneros e variação linguística",
+   "weight": 0.5
+  },
+  {
+   "topic_id": "edf.linguagem-corporal.praticas-corporais-e-educacao-fisica",
+   "nome": "Práticas corporais e Educação Física",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "red.redacao.estrutura-dissertativo-argumentativa",
+   "nome": "Estrutura dissertativo-argumentativa",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "red.redacao.tese-e-argumentacao",
+   "nome": "Tese e argumentação",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "red.redacao.repertorio-sociocultural",
+   "nome": "Repertório sociocultural",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "red.redacao.coesao-textual",
+   "nome": "Coesão textual",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "red.redacao.proposta-de-intervencao",
+   "nome": "Proposta de intervenção",
+   "weight": 1.0
+  },
+  {
+   "topic_id": "red.redacao.analise-dos-temas-do-enem",
+   "nome": "Análise dos temas do ENEM",
+   "weight": 0.5
+  }
+ ]
+}
