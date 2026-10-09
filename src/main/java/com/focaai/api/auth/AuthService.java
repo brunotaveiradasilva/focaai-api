@@ -59,7 +59,8 @@ public class AuthService {
         usuarios.deleteById(usuarioId);
     }
 
-    private Login abrirSessao(Usuario usuario) {
+    /** Package-private para o login de desenvolvimento (só nos fontes de teste) abrir uma sessão igual. */
+    Login abrirSessao(Usuario usuario) {
         String refresh = tokens.novoRefreshToken();
         sessoes.save(new Sessao(usuario.getId(), EmissorDeTokens.hash(refresh), tokens.expiracaoDoRefresh()));
         return new Login(tokens.acesso(usuario), refresh, tokens.segundosDeAcesso(), UsuarioResumo.de(usuario));
