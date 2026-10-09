@@ -26,6 +26,11 @@ public class TratadorDeErros {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("erro", ex.getMessage()));
     }
 
+    @ExceptionHandler(ConflitoException.class)
+    public ResponseEntity<Map<String, String>> conflito(ConflitoException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("erro", ex.getMessage()));
+    }
+
     @ExceptionHandler(LoginInvalidoException.class)
     public ResponseEntity<Map<String, String>> loginInvalido(LoginInvalidoException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("erro", ex.getMessage()));

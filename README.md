@@ -151,3 +151,11 @@ As datas seguem o calendário do aluno: o app manda o fuso em `X-Timezone`
 
 As pessoas sugeridas ainda são exemplos fictícios (`conteudo/pessoas-exemplo.json`), como no app;
 a combinação já é a de verdade e vai rodar igual quando houver perfis reais para cruzar.
+
+## Importar os dados do aparelho
+
+Antes da API, o app guardava tudo só no aparelho. No primeiro login, ele manda esse estado
+(o `focaai-state-v1` do AsyncStorage) para `POST /api/eu/importar`, e a API grava perfil,
+progresso, check-ins, simulados, planos congelados, tarefas dispensadas, conexões e grupos de uma
+vez. Os ids do app (timestamps) viram UUIDs estáveis, então reenviar não duplica. Uma conta que já
+tem perfil recusa a importação (409) em vez de misturar dois históricos.
