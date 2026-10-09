@@ -3,6 +3,8 @@ package com.focaai.api.comum;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.focaai.api.auth.LoginInvalidoException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,6 +23,11 @@ public class TratadorDeErros {
     @ExceptionHandler(RequisicaoInvalidaException.class)
     public ResponseEntity<Map<String, String>> requisicaoInvalida(RequisicaoInvalidaException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("erro", ex.getMessage()));
+    }
+
+    @ExceptionHandler(LoginInvalidoException.class)
+    public ResponseEntity<Map<String, String>> loginInvalido(LoginInvalidoException ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("erro", ex.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
