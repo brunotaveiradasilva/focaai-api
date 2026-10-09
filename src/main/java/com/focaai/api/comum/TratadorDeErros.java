@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.RestClientException;
 
 /** Converte as exceções da API em respostas JSON simples, em vez da página de erro padrão do Spring. */
 @RestControllerAdvice
@@ -28,6 +29,13 @@ public class TratadorDeErros {
     @ExceptionHandler(LoginInvalidoException.class)
     public ResponseEntity<Map<String, String>> loginInvalido(LoginInvalidoException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("erro", ex.getMessage()));
+    }
+
+    /** api.enem.dev fora do ar ou recusando: o problema não é de quem chamou, é do serviço de trás. */
+    @ExceptionHandler(RestClientException.class)
+    public ResponseEntity<Map<String, String>> servicoExternoFalhou(RestClientException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+                .body(Map.of("erro", "Não foi possível baixar as questões agora. Tente de novo em instantes."));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

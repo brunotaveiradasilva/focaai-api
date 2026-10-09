@@ -39,3 +39,8 @@ app:
     google:
       # Client IDs OAuth do app no Google Cloud (web, Android e iOS), separados por vírgula.
       client-ids: ${GOOGLE_CLIENT_IDS:}
+
+  enem:
+    url: ${ENEM_API_URL:https://api.enem.dev/v1}
+    # Baixa em segundo plano, ao subir, as provas que ainda não estão no banco.
+    aquecer-cache: ${ENEM_AQUECER_CACHE:true}

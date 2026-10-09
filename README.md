@@ -104,3 +104,19 @@ Tudo em `/api/eu/...` é do aluno logado. Os campos JSON têm os mesmos nomes do
 | `GET /api/eu/checkins` | Histórico de check-ins |
 | `DELETE /api/eu/dados` | "Começar do zero": apaga o estudo e mantém a conta |
 | `DELETE /api/eu` | Exclui a conta e tudo dela |
+
+## Simulados
+
+Questões reais do ENEM de 2009 a 2023, da [api.enem.dev](https://api.enem.dev) (domínio público).
+Cada prova é baixada uma vez, guardada na tabela `prova_enem` e servida a todos os alunos daí em
+diante. Ao subir, a API baixa em segundo plano as provas que ainda faltam (`ENEM_AQUECER_CACHE`).
+
+| Endpoint | O que faz |
+|---|---|
+| `POST /api/eu/simulados` | `{"areas": ["matematica"], "count": 20, "range": "recentes"}` monta um simulado no idioma estrangeiro do perfil, sem repetir questão já vista enquanto houver inédita, e deixa em andamento |
+| `GET /api/eu/simulados/em-andamento` | O simulado em andamento (sem gabarito), ou 204 |
+| `PUT /api/eu/simulados/em-andamento/respostas/{questao}` | `{"letter": "C"}` marca a resposta; `null` apaga |
+| `PUT /api/eu/simulados/em-andamento/tempo` | `{"seconds": 600}` guarda o tempo de prova |
+| `POST /api/eu/simulados/em-andamento/finalizar` | Fecha o simulado e devolve gabarito e placar (total e por área) |
+| `DELETE /api/eu/simulados/em-andamento` | Descarta o simulado em andamento |
+| `GET /api/eu/simulados` e `/{id}` | Simulados finalizados (resumo com placar) e um simulado completo |
