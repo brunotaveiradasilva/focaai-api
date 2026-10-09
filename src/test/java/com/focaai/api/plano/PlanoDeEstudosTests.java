@@ -129,6 +129,9 @@ class PlanoDeEstudosTests {
         JsonNode p = api.ler(api.post("/api/plano/previa", Map.of("profile", PerfilDeTeste.perfil())));
         assertThat(p.get("summary").get("weeklyMinutes").asInt()).isEqualTo(1260);
         assertThat(p.get("tasks").size()).isEqualTo(14);
+        // Sem compromissos: manhã das 7h às 12h e noite das 18h às 23h livres.
+        assertThat(p.get("free").get(0).get(0).asInt()).isEqualTo(300);
+        assertThat(p.get("free").get(0).get(2).asInt()).isEqualTo(300);
         assertThat(api.get("/api/eu/estado")).bodyJson().extractingPath("$.profile").isNull();
     }
 

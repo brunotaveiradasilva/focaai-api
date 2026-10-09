@@ -114,7 +114,18 @@ public class PlanoService {
 
     /** O plano que um perfil ainda não salvo teria: o onboarding mostra antes de terminar. */
     public Previa previa(Perfil perfil, LocalDate hoje) {
-        return new Previa(planejador.semana(perfil, Map.of(), Map.of(), Map.of(), hoje), resumo(perfil, hoje));
+        return new Previa(planejador.semana(perfil, Map.of(), Map.of(), Map.of(), hoje), resumo(perfil, hoje),
+                tempoLivre(perfil));
+    }
+
+    /** Minutos livres por dia (0 = segunda) e período, ou {@code null} sem rotina cadastrada. */
+    private static int[][] tempoLivre(Perfil perfil) {
+        if (perfil.routine() == null) return null;
+        int[][] livre = new int[7][3];
+        for (int dia = 0; dia < 7; dia++) {
+            for (int periodo = 0; periodo < 3; periodo++) livre[dia][periodo] = perfil.routine().minutosLivres(dia, periodo);
+        }
+        return livre;
     }
 
     private Resumo resumo(Perfil perfil, LocalDate hoje) {
@@ -144,6 +155,10 @@ public class PlanoService {
             List<DiaDeProva> examDates) {
     }
 
-    public record Previa(List<Tarefa> tasks, Resumo summary) {
+    /**
+     * @param free minutos livres que a rotina deixa em cada dia e período ({@code free[dia][periodo]}),
+     *             para o onboarding e o editor de rotina mostrarem enquanto o aluno edita
+     */
+    public record Previa(List<Tarefa> tasks, Resumo summary, int[][] free) {
     }
 }
