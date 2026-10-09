@@ -117,6 +117,12 @@ public class SimuladoService {
                 .toList();
     }
 
+    /** Quando cada simulado foi finalizado: concluir um simulado conclui o bloco de simulado do dia. */
+    @Transactional(readOnly = true)
+    public List<Instant> finalizacoes(UUID usuarioId) {
+        return simulados.finalizacoes(usuarioId);
+    }
+
     @Transactional(readOnly = true)
     public SimuladoDoAluno buscar(UUID usuarioId, UUID id) {
         return simulados.findByIdAndUsuarioId(id, usuarioId).map(this::doAluno)

@@ -1,5 +1,6 @@
 package com.focaai.api.simulado;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -15,6 +16,9 @@ public interface SimuladoRepository extends JpaRepository<Simulado, UUID> {
     Optional<Simulado> findByIdAndUsuarioId(UUID id, UUID usuarioId);
 
     List<Simulado> findByUsuarioIdAndFinalizadoEmIsNotNullOrderByFinalizadoEmDesc(UUID usuarioId);
+
+    @Query("select s.finalizadoEm from Simulado s where s.usuarioId = :usuarioId and s.finalizadoEm is not null")
+    List<Instant> finalizacoes(UUID usuarioId);
 
     @Query(value = "SELECT q->>'key' FROM simulado, jsonb_array_elements(questoes) q WHERE usuario_id = :usuarioId",
             nativeQuery = true)

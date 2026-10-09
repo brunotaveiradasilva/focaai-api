@@ -120,3 +120,22 @@ diante. Ao subir, a API baixa em segundo plano as provas que ainda faltam (`ENEM
 | `POST /api/eu/simulados/em-andamento/finalizar` | Fecha o simulado e devolve gabarito e placar (total e por área) |
 | `DELETE /api/eu/simulados/em-andamento` | Descarta o simulado em andamento |
 | `GET /api/eu/simulados` e `/{id}` | Simulados finalizados (resumo com placar) e um simulado completo |
+
+## Plano de estudos
+
+O plano é montado por regras, sempre igual para as mesmas entradas: rotina, concorrência do curso,
+nível em cada matéria, progresso, foco e reforço (porte exato do `planner.ts` do app, conferido em
+`PlanejadorTests` contra 300 cenários gerados pelo próprio app). O plano de cada dia fica congelado
+quando o aluno abre o app naquele dia, para as tarefas atrasadas serem conferidas contra o que foi
+planejado.
+
+As datas seguem o calendário do aluno: o app manda o fuso em `X-Timezone`
+(ex.: `America/Sao_Paulo`; sem ele, vale esse).
+
+| Endpoint | O que faz |
+|---|---|
+| `GET /api/eu/semana?data=2026-10-09` | A semana (tela Início): tarefas, ids das feitas, atrasadas da última semana e resumo |
+| `POST /api/eu/tarefas/{id}/dispensar` | "Deixar pra lá" numa tarefa atrasada |
+| `GET /api/eu/plano` | Objetivo, minutos por semana, dias de estudo, provas seguidas e próximas datas |
+| `GET /api/eu/roteiros/{materia}` | Roadmap da matéria com estado de cada assunto, aulas feitas, foco e o assunto atual |
+| `POST /api/plano/previa` | `{"profile": {...}}` devolve o plano que um perfil ainda não salvo teria (prévia do onboarding) |
