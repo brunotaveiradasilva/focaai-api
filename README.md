@@ -139,3 +139,15 @@ As datas seguem o calendário do aluno: o app manda o fuso em `X-Timezone`
 | `GET /api/eu/plano` | Objetivo, minutos por semana, dias de estudo, provas seguidas e próximas datas |
 | `GET /api/eu/roteiros/{materia}` | Roadmap da matéria com estado de cada assunto, aulas feitas, foco e o assunto atual |
 | `POST /api/plano/previa` | `{"profile": {...}}` devolve o plano que um perfil ainda não salvo teria (prévia do onboarding) |
+
+## Evolução e Pessoas
+
+| Endpoint | O que faz |
+|---|---|
+| `GET /api/eu/estatisticas?dias=7` | Sequência atual e melhor, minutos de hoje e por dia, minutos por matéria, acerto geral e por área nos simulados (fuso em `X-Timezone`) |
+| `GET /api/eu/pessoas` | Parceiros sugeridos (com motivos, em que podem ajudar e o status do pedido) e os grupos do aluno |
+| `POST /api/eu/pessoas/{id}/conectar` | Pede conexão (fica `pending`) |
+| `PUT` / `DELETE /api/eu/grupos/{id}` | Entra ou sai de um grupo |
+
+As pessoas sugeridas ainda são exemplos fictícios (`conteudo/pessoas-exemplo.json`), como no app;
+a combinação já é a de verdade e vai rodar igual quando houver perfis reais para cruzar.
