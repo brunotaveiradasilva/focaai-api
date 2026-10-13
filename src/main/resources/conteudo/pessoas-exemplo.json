@@ -1,0 +1,210 @@
+[
+  {
+    "id": "p1",
+    "name": "Júlia M.",
+    "city": "Campo Grande, MS",
+    "track": "ambos",
+    "cycle": 2026,
+    "courseId": "medicina",
+    "periods": [
+      2
+    ],
+    "strong": [
+      "bio",
+      "qui"
+    ],
+    "weak": [
+      "mat",
+      "fis"
+    ],
+    "streak": 21,
+    "bio": "Terceiro ano, estudo à noite depois da escola."
+  },
+  {
+    "id": "p2",
+    "name": "Rafael S.",
+    "city": "São Paulo, SP",
+    "track": "vestibulares",
+    "cycle": 2026,
+    "courseId": "engenharias",
+    "periods": [
+      0,
+      2
+    ],
+    "strong": [
+      "mat",
+      "fis"
+    ],
+    "weak": [
+      "red",
+      "his"
+    ],
+    "streak": 9,
+    "bio": "Cursinho de manhã, revisão à noite. Fuvest e Unicamp."
+  },
+  {
+    "id": "p3",
+    "name": "Ana Clara T.",
+    "city": "Dourados, MS",
+    "track": "enem",
+    "cycle": 2026,
+    "courseId": "direito",
+    "periods": [
+      1,
+      2
+    ],
+    "strong": [
+      "red",
+      "por",
+      "his"
+    ],
+    "weak": [
+      "mat"
+    ],
+    "streak": 14,
+    "bio": "Foco em redação nota mil. Topo trocar correções."
+  },
+  {
+    "id": "p4",
+    "name": "Pedro H.",
+    "city": "Campinas, SP",
+    "track": "vestibulares",
+    "cycle": 2026,
+    "courseId": "computacao",
+    "periods": [
+      2
+    ],
+    "strong": [
+      "mat"
+    ],
+    "weak": [
+      "bio",
+      "qui"
+    ],
+    "streak": 5,
+    "bio": "Estudo programação nas horas vagas, Unicamp é o sonho."
+  },
+  {
+    "id": "p5",
+    "name": "Larissa F.",
+    "city": "Belo Horizonte, MG",
+    "track": "enem",
+    "cycle": 2027,
+    "courseId": "medicina",
+    "periods": [
+      0,
+      1
+    ],
+    "strong": [
+      "bio"
+    ],
+    "weak": [
+      "fis",
+      "mat"
+    ],
+    "streak": 32,
+    "bio": "Segundo ano, começando cedo para Medicina."
+  },
+  {
+    "id": "p6",
+    "name": "Gustavo R.",
+    "city": "Curitiba, PR",
+    "track": "enem",
+    "cycle": 2026,
+    "courseId": "psicologia",
+    "periods": [
+      1
+    ],
+    "strong": [
+      "por",
+      "his",
+      "geo"
+    ],
+    "weak": [
+      "qui"
+    ],
+    "streak": 3,
+    "bio": "Voltando a estudar depois de um ano trabalhando."
+  },
+  {
+    "id": "p7",
+    "name": "Beatriz L.",
+    "city": "Três Lagoas, MS",
+    "track": "ambos",
+    "cycle": 2026,
+    "courseId": "odontologia",
+    "periods": [
+      2
+    ],
+    "strong": [
+      "qui",
+      "mat"
+    ],
+    "weak": [
+      "red"
+    ],
+    "streak": 11,
+    "bio": "ENEM e UFMS. Gosto de resolver lista em dupla."
+  },
+  {
+    "id": "p8",
+    "name": "Thiago A.",
+    "city": "Recife, PE",
+    "track": "enem",
+    "cycle": 2026,
+    "courseId": "eng-civil",
+    "periods": [
+      0
+    ],
+    "strong": [
+      "fis",
+      "mat"
+    ],
+    "weak": [
+      "por"
+    ],
+    "streak": 7,
+    "bio": "Estudo cedinho antes do trabalho."
+  },
+  {
+    "id": "p9",
+    "name": "Mariana C.",
+    "city": "Rio de Janeiro, RJ",
+    "track": "enem",
+    "cycle": 2026,
+    "courseId": "ri",
+    "periods": [
+      1,
+      2
+    ],
+    "strong": [
+      "geo",
+      "his",
+      "red"
+    ],
+    "weak": [
+      "fis"
+    ],
+    "streak": 18,
+    "bio": "Leio muito sobre geopolítica, posso ajudar em Humanas."
+  },
+  {
+    "id": "p10",
+    "name": "Lucas V.",
+    "city": "Goiânia, GO",
+    "track": "enem",
+    "cycle": 2027,
+    "courseId": "administracao",
+    "periods": [
+      2
+    ],
+    "strong": [
+      "mat"
+    ],
+    "weak": [
+      "bio"
+    ],
+    "streak": 2,
+    "bio": "Primeiro ano estudando sério. Busco parceiro de rotina."
+  }
+]
