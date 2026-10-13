@@ -1,6 +1,7 @@
 package com.focaai.api.auth;
 
 import java.time.Instant;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +51,12 @@ public class AuthService {
     @Transactional
     public void sair(String refreshToken) {
         sessoes.findByTokenHash(EmissorDeTokens.hash(refreshToken)).ifPresent(Sessao::revogar);
+    }
+
+    /** O banco apaga em cascata tudo que é do usuário (sessões, perfil, check-ins...). */
+    @Transactional
+    public void excluirConta(UUID usuarioId) {
+        usuarios.deleteById(usuarioId);
     }
 
     private Login abrirSessao(Usuario usuario) {
