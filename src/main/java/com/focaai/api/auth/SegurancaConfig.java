@@ -19,6 +19,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -30,7 +32,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * Tudo exige o token de acesso da API ({@code Authorization: Bearer ...}), menos o conteúdo fixo, o
- * login e o health check.
+ * login (Google ou e-mail e senha) e o health check.
  */
 @Configuration
 public class SegurancaConfig {
@@ -47,10 +49,17 @@ public class SegurancaConfig {
                 .authorizeHttpRequests(a -> a
                         .requestMatchers("/actuator/health").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/conteudo/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/auth/google", "/api/auth/renovar", "/api/auth/sair").permitAll()
+                        // Entrar, cadastrar, renovar, sair e trocar a senha: tudo antes de ter token.
+                        .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(o -> o.jwt(j -> j.decoder(decodificadorDaApi)))
                 .build();
+    }
+
+    /** bcrypt, com o prefixo {bcrypt} no hash: dá para trocar de algoritmo depois sem invalidar as senhas antigas. */
+    @Bean
+    PasswordEncoder senhas() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Bean

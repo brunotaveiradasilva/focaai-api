@@ -1,6 +1,7 @@
 package com.focaai.api.auth;
 
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -23,11 +24,18 @@ public class AuthService {
         this.sessoes = sessoes;
     }
 
-    /** Primeiro login cria a conta; os seguintes só atualizam nome, e-mail e foto. */
+    /**
+     * Primeiro login cria a conta; os seguintes só atualizam nome, e-mail e foto. Se já existe conta
+     * com senha nesse e-mail, é a mesma pessoa (o Google confirmou o e-mail e o cadastro também):
+     * a conta passa a entrar pelos dois jeitos.
+     */
     @Transactional
     public Login entrarComGoogle(String idToken) {
         VerificadorGoogle.ContaGoogle conta = google.verificar(idToken);
-        Usuario usuario = usuarios.findByGoogleSub(conta.sub()).orElseGet(() -> new Usuario(conta.sub()));
+        Usuario usuario = usuarios.findByGoogleSub(conta.sub())
+                .or(() -> conta.email() == null ? Optional.empty() : usuarios.buscarPorEmail(conta.email()))
+                .orElseGet(() -> new Usuario(conta.sub()));
+        usuario.vincularGoogle(conta.sub());
         usuario.atualizarComGoogle(conta.email(), conta.nome(), conta.foto());
         usuarios.save(usuario);
         return abrirSessao(usuario);

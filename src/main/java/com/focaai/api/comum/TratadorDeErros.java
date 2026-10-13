@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.focaai.api.auth.LoginInvalidoException;
+import com.focaai.api.email.EmailNaoEnviadoException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,16 @@ public class TratadorDeErros {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("erro", ex.getMessage()));
     }
 
+    @ExceptionHandler(MuitasTentativasException.class)
+    public ResponseEntity<Map<String, String>> muitasTentativas(MuitasTentativasException ex) {
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(Map.of("erro", ex.getMessage()));
+    }
+
+    @ExceptionHandler(EmailNaoEnviadoException.class)
+    public ResponseEntity<Map<String, String>> emailNaoEnviado(EmailNaoEnviadoException ex) {
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(Map.of("erro", ex.getMessage()));
+    }
+
     /** api.enem.dev fora do ar ou recusando: o problema não é de quem chamou, é do serviço de trás. */
     @ExceptionHandler(RestClientException.class)
     public ResponseEntity<Map<String, String>> servicoExternoFalhou(RestClientException ex) {
@@ -50,7 +61,8 @@ public class TratadorDeErros {
                 campos.put(erro.getField(), erro.getDefaultMessage()));
 
         Map<String, Object> corpo = new LinkedHashMap<>();
-        corpo.put("erro", "Dados inválidos");
+        // Um campo só: a mensagem dele já explica o problema para quem usa o app.
+        corpo.put("erro", campos.size() == 1 ? campos.values().iterator().next() : "Dados inválidos");
         corpo.put("campos", campos);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(corpo);
     }

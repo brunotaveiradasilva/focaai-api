@@ -40,8 +40,8 @@ Só com o JDK 21:
 ./mvnw spring-boot:test-run
 ```
 
-Sobe a API com o PostgreSQL embutido dos testes (os dados somem quando ela para) e liga um login
-de desenvolvimento, para usar o app antes de configurar o Google:
+Sobe a API com o PostgreSQL embutido dos testes (os dados somem quando ela para), mostra no log os
+e-mails que seriam enviados e liga um login de desenvolvimento, para usar o app antes de configurar o Google:
 
 ```bash
 curl -X POST http://localhost:8080/api/auth/dev -H "Content-Type: application/json" \
@@ -79,8 +79,10 @@ de questões forem para o PostgreSQL.
 
 ## Login
 
-O app entra com a conta Google; a API não tem senha própria. Fora o conteúdo, o login e o
+O app entra com a conta Google ou com e-mail e senha. Fora o conteúdo, o login e o
 `/actuator/health`, tudo exige `Authorization: Bearer <accessToken>`.
+
+Com Google:
 
 1. O app faz o login com o Google e recebe um **ID token**.
 2. Manda para `POST /api/auth/google` com `{"idToken": "..."}`. A API confere a assinatura (chaves
@@ -92,7 +94,33 @@ O app entra com a conta Google; a API não tem senha própria. Fora o conteúdo,
    um par novo. Cada refresh token serve uma vez só; o banco guarda apenas o hash dele.
 5. `POST /api/auth/sair` com `{"refreshToken": "..."}` encerra a sessão daquele aparelho.
 
+Com e-mail e senha (a conta só existe depois de o e-mail ser confirmado por um código de 6 dígitos):
+
+| Endpoint | Corpo | O que faz |
+|---|---|---|
+| `POST /api/auth/cadastro` | `email`, `name`, `password` | Manda o código para o e-mail (204). 409 se o e-mail já tem senha; 429 se pediu outro há menos de 1 minuto |
+| `POST /api/auth/cadastro/confirmar` | `email`, `code` | Cria a conta e já entra (mesma resposta do Google) |
+| `POST /api/auth/entrar` | `email`, `password` | Entra. 10 senhas erradas seguidas bloqueiam a conta por 15 minutos (429) |
+| `POST /api/auth/senha/esqueci` | `email` | Manda o código para criar uma senha nova. Sempre 204, tenha conta ou não |
+| `POST /api/auth/senha/redefinir` | `email`, `code`, `password` | Troca a senha, derruba os outros aparelhos e entra |
+
+O código vale 15 minutos e aguenta 5 erros. Senha com 8 a 72 caracteres, guardada em bcrypt. Como
+todo e-mail é confirmado, Google e senha no mesmo e-mail são a mesma conta: dá para entrar dos
+dois jeitos, e uma conta Google ganha senha pelo cadastro ou pelo "esqueci minha senha".
+
 `GET /api/eu` devolve a conta logada.
+
+### E-mails (Resend)
+
+Os códigos saem pela API HTTP do [Resend](https://resend.com) (o Railway bloqueia SMTP). Crie a
+conta, gere uma **API key** (permissão *Sending access*) e coloque em `RESEND_API_KEY`. Sem ela, o
+login com e-mail responde 503 e só o Google funciona.
+
+O remetente padrão, `onboarding@resend.dev`, **só entrega para o e-mail da própria conta do
+Resend**: serve para testar. Para mandar para qualquer pessoa, verifique um domínio em
+**Domains** no Resend e troque `EMAIL_REMETENTE` (ex.: `FocaAI <nao-responda@seudominio.com.br>`).
+
+Rodando local (opção 3), os e-mails não saem: o código aparece no log da API.
 
 ### Client IDs do Google
 
@@ -192,6 +220,7 @@ tem perfil recusa a importação (409) em vez de misturar dois históricos.
    - `JWT_SECRET` = um valor aleatório forte (gere com `openssl rand -base64 48`, por exemplo)
    - `GOOGLE_CLIENT_IDS` = os client IDs OAuth do app (ver **Client IDs do Google**)
    - `CORS_ALLOWED_ORIGINS` = o endereço da versão web do app, se ela for publicada
+   - `RESEND_API_KEY` e `EMAIL_REMETENTE` = envio dos códigos do login com e-mail (ver **E-mails (Resend)**)
    - (o Railway já define `PORT` sozinho — não precisa mexer)
 5. Em **Settings → Deploy**, coloque `/actuator/health` como **Healthcheck Path** e aplique com o
    botão **Deploy** da faixa de mudanças no topo: o Railway só troca a versão no ar depois que a nova
