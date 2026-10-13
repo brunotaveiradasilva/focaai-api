@@ -1,0 +1,32 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: focaai-api
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/focaai}
+    username: ${DB_USERNAME:focaai}
+    password: ${DB_PASSWORD:focaai}
+
+  jpa:
+    open-in-view: false
+    # O schema é do Flyway (src/main/resources/db/migration); o Hibernate só confere.
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+  jackson:
+    default-property-inclusion: non_null
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+app:
+  # Origens que podem chamar a API pelo navegador (versão web do app), separadas por vírgula.
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:8081,http://localhost:8082}

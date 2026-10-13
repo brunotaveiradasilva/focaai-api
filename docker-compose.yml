@@ -1,0 +1,36 @@
+# Sobe PostgreSQL + a API localmente com um único comando: docker compose up --build
+# Para rodar só o banco e a API pela IDE/mvnw: docker compose up postgres
+services:
+  postgres:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: focaai
+      POSTGRES_USER: focaai
+      POSTGRES_PASSWORD: focaai
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U focaai -d focaai"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/focaai
+      DB_USERNAME: focaai
+      DB_PASSWORD: focaai
+      CORS_ALLOWED_ORIGINS: http://localhost:8081,http://localhost:8082
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
