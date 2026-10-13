@@ -193,8 +193,8 @@ tem perfil recusa a importação (409) em vez de misturar dois históricos.
    - `GOOGLE_CLIENT_IDS` = os client IDs OAuth do app (ver **Client IDs do Google**)
    - `CORS_ALLOWED_ORIGINS` = o endereço da versão web do app, se ela for publicada
    - (o Railway já define `PORT` sozinho — não precisa mexer)
-5. Em **Settings → Deploy**, coloque `/actuator/health` como **Healthcheck Path**: o Railway só
-   troca a versão no ar depois que a nova responder.
+5. O healthcheck já vem do `railway.json` (`/actuator/health`): o Railway só troca a versão no ar
+   depois que a nova responder, e reinicia a API se ela cair.
 6. Gere um domínio público em **Settings → Networking → Generate Domain**. Essa URL
    (`https://algo.up.railway.app`) é o `EXPO_PUBLIC_API_URL` do app. Nos builds do EAS, cadastre
    com `bunx eas-cli env:create` (ou pela página do projeto no expo.dev) para valer em todos os perfis.
