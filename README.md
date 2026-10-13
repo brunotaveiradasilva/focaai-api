@@ -58,3 +58,33 @@ servido sem login:
 Para mudar uma data de prova ou um edital, edite o JSON e publique uma nova versão da API.
 `docs/modelo-de-dados-rascunho.sql` é o rascunho do modelo para quando esse conteúdo e o banco
 de questões forem para o PostgreSQL.
+
+## Login
+
+O app entra com a conta Google; a API não tem senha própria. Fora o conteúdo, o login e o
+`/actuator/health`, tudo exige `Authorization: Bearer <accessToken>`.
+
+1. O app faz o login com o Google e recebe um **ID token**.
+2. Manda para `POST /api/auth/google` com `{"idToken": "..."}`. A API confere a assinatura (chaves
+   públicas do Google), a validade, o emissor, se o e-mail é verificado e se o token foi emitido
+   para um dos client IDs do FocaAI (`GOOGLE_CLIENT_IDS`). O primeiro login cria a conta.
+3. A resposta traz `accessToken` (JWT da API, vale `JWT_ACESSO_MINUTOS`), `refreshToken`
+   (vale `JWT_RENOVACAO_DIAS`) e `user` (nome, e-mail e foto do Google).
+4. Quando o `accessToken` vence, `POST /api/auth/renovar` com `{"refreshToken": "..."}` devolve
+   um par novo. Cada refresh token serve uma vez só; o banco guarda apenas o hash dele.
+5. `POST /api/auth/sair` com `{"refreshToken": "..."}` encerra a sessão daquele aparelho.
+
+`GET /api/eu` devolve a conta logada.
+
+### Client IDs do Google
+
+No [Google Cloud Console](https://console.cloud.google.com/apis/credentials), no projeto do
+FocaAI, crie credenciais **ID do cliente OAuth** do tipo:
+
+- **Aplicativo da Web**: usado pelo app web e pelo login no Android.
+- **Android**: pacote `com.focaai.app` + impressão digital SHA-1 do certificado de assinatura
+  (`bunx eas-cli credentials` mostra a do build).
+- **iOS**: bundle ID `com.focaai.app`.
+
+Coloque os client IDs em `GOOGLE_CLIENT_IDS`, separados por vírgula. Sem eles a API sobe, mas
+recusa todo login.

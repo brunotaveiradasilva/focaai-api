@@ -30,3 +30,12 @@ app:
   # Origens que podem chamar a API pelo navegador (versão web do app), separadas por vírgula.
   cors:
     allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:8081,http://localhost:8082}
+
+  auth:
+    # Assina os tokens de acesso da API (mín. 32 caracteres). O padrão só serve para rodar local.
+    jwt-secret: ${JWT_SECRET:dev-chave-so-para-rodar-local-troque-antes-de-publicar}
+    acesso-minutos: ${JWT_ACESSO_MINUTOS:60}
+    renovacao-dias: ${JWT_RENOVACAO_DIAS:60}
+    google:
+      # Client IDs OAuth do app no Google Cloud (web, Android e iOS), separados por vírgula.
+      client-ids: ${GOOGLE_CLIENT_IDS:}

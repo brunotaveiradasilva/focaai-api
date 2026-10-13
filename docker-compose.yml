@@ -29,6 +29,8 @@ services:
       DB_USERNAME: focaai
       DB_PASSWORD: focaai
       CORS_ALLOWED_ORIGINS: http://localhost:8081,http://localhost:8082
+      JWT_SECRET: dev-chave-so-para-rodar-local-troque-antes-de-publicar
+      GOOGLE_CLIENT_IDS: ${GOOGLE_CLIENT_IDS:-}
     ports:
       - "8080:8080"
 
