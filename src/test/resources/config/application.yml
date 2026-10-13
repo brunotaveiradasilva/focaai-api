@@ -1,0 +1,4 @@
+# Só nos testes: não baixar provas do ENEM ao subir (a fonte é falsa, ver EnemDeTeste).
+app:
+  enem:
+    aquecer-cache: false
