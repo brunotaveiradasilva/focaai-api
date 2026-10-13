@@ -75,6 +75,11 @@ class EvolucaoEPessoasTests {
         assertThat(e.get("areas").get(0).get("pct").isNull()).isTrue();
         assertThat(e.get("simulados").asInt()).isEqualTo(1);
         assertThat(e.get("checkins").asInt()).isEqualTo(2);
+        // O perfil de teste domina Matemática: o primeiro grupo (10 assuntos, 3 aulas cada) começa feito.
+        assertThat(e.get("roadmap").get(0).get("subject").asString()).isEqualTo("mat");
+        assertThat(e.get("roadmap").get(0).get("done").asInt()).isEqualTo(30);
+        assertThat(e.get("roadmap").get(0).get("total").asInt()).isGreaterThan(30);
+        assertThat(e.get("roadmap").get(3).get("done").asInt()).isZero();
         assertThat(api.ler(api.get("/api/eu/estatisticas?dias=30")).get("days").size()).isEqualTo(30);
         assertThat(api.get("/api/eu/estatisticas?dias=0")).hasStatus(400);
     }

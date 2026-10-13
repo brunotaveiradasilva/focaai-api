@@ -23,4 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      # O Docker Hub limita downloads anônimos vindos dos runners do GitHub (429); o espelho do Google não.
+      - name: Usar espelho do Docker Hub
+        run: |
+          echo '{"registry-mirrors": ["https://mirror.gcr.io"]}' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker
       - run: docker build -t focaai-api .
