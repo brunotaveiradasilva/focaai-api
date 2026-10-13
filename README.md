@@ -177,3 +177,28 @@ Antes da API, o app guardava tudo só no aparelho. No primeiro login, ele manda 
 progresso, check-ins, simulados, planos congelados, tarefas dispensadas, conexões e grupos de uma
 vez. Os ids do app (timestamps) viram UUIDs estáveis, então reenviar não duplica. Uma conta que já
 tem perfil recusa a importação (409) em vez de misturar dois históricos.
+
+## Deploy (Railway)
+
+1. Crie uma conta em [railway.app](https://railway.app) (dá para logar com a conta do GitHub).
+2. **New Project → Deploy from GitHub repo** e escolha `focaai-api`. O Railway detecta o
+   `Dockerfile` sozinho e builda a partir dele.
+3. **New → Database → Add PostgreSQL** no mesmo projeto. O Railway cria as variáveis `PGHOST`,
+   `PGPORT`, `PGDATABASE`, `PGUSER` e `PGPASSWORD` automaticamente.
+4. No serviço da API, aba **Variables**, defina:
+   - `DB_URL` = `jdbc:postgresql://${{Postgres.PGHOST}}:${{Postgres.PGPORT}}/${{Postgres.PGDATABASE}}`
+   - `DB_USERNAME` = `${{Postgres.PGUSER}}`
+   - `DB_PASSWORD` = `${{Postgres.PGPASSWORD}}`
+   - `JWT_SECRET` = um valor aleatório forte (gere com `openssl rand -base64 48`, por exemplo)
+   - `GOOGLE_CLIENT_IDS` = os client IDs OAuth do app (ver **Client IDs do Google**)
+   - `CORS_ALLOWED_ORIGINS` = o endereço da versão web do app, se ela for publicada
+   - (o Railway já define `PORT` sozinho — não precisa mexer)
+5. Em **Settings → Deploy**, coloque `/actuator/health` como **Healthcheck Path**: o Railway só
+   troca a versão no ar depois que a nova responder.
+6. Gere um domínio público em **Settings → Networking → Generate Domain**. Essa URL
+   (`https://algo.up.railway.app`) é o `EXPO_PUBLIC_API_URL` do app. Nos builds do EAS, cadastre
+   com `bunx eas-cli env:create` (ou pela página do projeto no expo.dev) para valer em todos os perfis.
+
+O schema do banco é criado e atualizado pelo Flyway a cada deploy. Na primeira subida, a API
+baixa em segundo plano as provas do ENEM que faltam (alguns minutos; o primeiro simulado de cada
+prova pode demorar um pouco enquanto isso).
