@@ -30,12 +30,24 @@ public class ApiEnemDev implements FonteEnem {
         this.http = RestClient.builder().baseUrl(url).build();
     }
 
+    private static final String COM_LINGUA = "/exams/{ano}/questions?limit={limite}&offset={offset}&language={lingua}";
+    private static final String SEM_LINGUA = "/exams/{ano}/questions?limit={limite}&offset={offset}";
+
     @Override
     public List<QuestaoEnem> baixar(int ano, String lingua) {
         List<JsonNode> brutas = new ArrayList<>();
+        String caminho = COM_LINGUA;
         for (int offset = 0; offset < 200; offset += POR_PAGINA) {
-            JsonNode pagina = buscar("/exams/{ano}/questions?limit={limite}&offset={offset}&language={lingua}",
-                    ano, POR_PAGINA, offset, lingua, 0);
+            JsonNode pagina;
+            try {
+                pagina = buscar(caminho, ano, POR_PAGINA, offset, lingua, 0);
+            } catch (HttpClientErrorException.BadRequest e) {
+                // A prova não tem esse idioma (2009 não tinha língua estrangeira; a api.enem.dev não tem o
+                // inglês de 2011): vale baixar sem o filtro, e o converter deixa só as questões comuns.
+                if (SEM_LINGUA.equals(caminho) || !e.getResponseBodyAsString().contains("not found in exam")) throw e;
+                caminho = SEM_LINGUA;
+                pagina = buscar(caminho, ano, POR_PAGINA, offset, lingua, 0);
+            }
             pagina.get("questions").forEach(brutas::add);
             JsonNode meta = pagina.get("metadata");
             if (meta != null && !meta.path("hasMore").asBoolean(true)) break;
@@ -64,7 +76,9 @@ public class ApiEnemDev implements FonteEnem {
 
     /**
      * Converte e filtra: uma questão por número, só na língua estrangeira escolhida, sem as que citam
-     * imagens que a API não conseguiu extrair e sem as que não têm gabarito.
+     * imagens que a API não conseguiu extrair e sem as que não têm gabarito. Nas posições de língua
+     * estrangeira, só entra questão marcada com o idioma do aluno: algumas provas (2011, por exemplo)
+     * vêm com inglês e espanhol misturados e sem idioma marcado.
      */
     static List<QuestaoEnem> converter(int ano, String lingua, List<JsonNode> brutas) {
         Set<Integer> vistos = new HashSet<>();
@@ -74,6 +88,7 @@ public class ApiEnemDev implements FonteEnem {
             if (vistos.contains(numero)) continue;
             String linguaDaQuestao = texto(q, "language");
             if (linguaDaQuestao != null && !linguaDaQuestao.equals(lingua)) continue;
+            if (linguaDaQuestao == null && deLinguaEstrangeira(ano, numero)) continue;
             if (q.toString().contains("broken-image")) continue;
             String gabarito = texto(q, "correctAlternative");
             JsonNode alternativas = q.get("alternatives");
@@ -88,6 +103,15 @@ public class ApiEnemDev implements FonteEnem {
                     valorOuVazio(q, "context"), valorOuVazio(q, "alternativesIntroduction"), arquivos, alts, gabarito));
         }
         return questoes;
+    }
+
+    /**
+     * A partir de 2010, as 5 primeiras questões de Linguagens são de língua estrangeira: 1 a 5 desde
+     * 2017, 91 a 95 antes. Em 2009 não havia língua estrangeira, e essas posições são de Português.
+     */
+    static boolean deLinguaEstrangeira(int ano, int numero) {
+        if (ano < 2010) return false;
+        return ano >= 2017 ? numero <= 5 : numero >= 91 && numero <= 95;
     }
 
     /**

@@ -60,4 +60,18 @@ class ApiEnemDevTests {
         assertThat(ApiEnemDev.areaDoNumero(2016, 180)).isEqualTo("matematica");
         assertThat(ApiEnemDev.areaDoNumero(2023, 185)).isEqualTo("matematica");
     }
+
+    @Test
+    void linguaEstrangeiraSemIdiomaMarcadoFicaDeFora() {
+        List<JsonNode> brutas = new ArrayList<>();
+        JsonMapper.builder().build().readTree("""
+                [{"index": 91, "language": null, "correctAlternative": "A", "alternatives": [{"letter": "A"}, {"letter": "B"}]},
+                 {"index": 92, "language": "espanhol", "correctAlternative": "A", "alternatives": [{"letter": "A"}, {"letter": "B"}]},
+                 {"index": 96, "language": null, "correctAlternative": "A", "alternatives": [{"letter": "A"}, {"letter": "B"}]}]
+                """).forEach(brutas::add);
+        // 2011: 91 sem idioma pode ser inglês ou espanhol; 92 é do espanhol; 96 já é Português.
+        assertThat(ApiEnemDev.converter(2011, "espanhol", brutas)).extracting(QuestaoEnem::index).containsExactly(92, 96);
+        // 2009 não tinha língua estrangeira: 91 é Português e fica.
+        assertThat(ApiEnemDev.converter(2009, "ingles", brutas)).extracting(QuestaoEnem::index).containsExactly(91, 96);
+    }
 }
