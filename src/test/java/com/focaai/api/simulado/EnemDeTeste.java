@@ -1,7 +1,9 @@
 package com.focaai.api.simulado;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.boot.test.context.TestConfiguration;
@@ -21,9 +23,12 @@ public class EnemDeTeste {
     public static class ProvasFalsas implements FonteEnem {
 
         public final AtomicInteger baixadas = new AtomicInteger();
+        /** Anos que "não baixam", como uma prova fora do ar na api.enem.dev. */
+        public final Set<Integer> falham = new HashSet<>();
 
         @Override
         public List<QuestaoEnem> baixar(int ano, String lingua) {
+            if (falham.contains(ano)) throw new IllegalStateException("prova " + ano + " fora do ar");
             baixadas.incrementAndGet();
             List<QuestaoEnem> questoes = new ArrayList<>();
             for (int n = 1; n <= 180; n++) {

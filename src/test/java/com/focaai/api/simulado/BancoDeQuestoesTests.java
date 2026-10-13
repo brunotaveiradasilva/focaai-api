@@ -1,6 +1,7 @@
 package com.focaai.api.simulado;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import java.util.Set;
@@ -64,5 +65,19 @@ class BancoDeQuestoesTests {
         // 45 de matemática por prova: pedir 60 inéditas obriga a baixar duas.
         assertThat(banco.montarSimulado(List.of("matematica"), 60, true, "ingles", Set.of())).hasSize(60);
         assertThat(fonte.baixadas).hasValue(2);
+    }
+
+    @Test
+    void provaQueNaoBaixaNaoDerrubaOSimulado() {
+        // Só 2019 e 2020 baixam: o simulado sai com elas.
+        for (int ano = 2021; ano <= 2023; ano++) fonte.falham.add(ano);
+        assertThat(banco.montarSimulado(List.of("matematica"), 60, true, "ingles", Set.of())).hasSize(60);
+    }
+
+    @Test
+    void semNenhumaProvaOErroDaFonteAparece() {
+        for (int ano = 2019; ano <= 2023; ano++) fonte.falham.add(ano);
+        assertThatThrownBy(() -> banco.montarSimulado(List.of("matematica"), 10, true, "ingles", Set.of()))
+                .hasMessageContaining("fora do ar");
     }
 }

@@ -133,15 +133,27 @@ public class BancoDeQuestoes {
         Map<String, List<QuestaoEnem>> reserva = new LinkedHashMap<>();
         areas.forEach(a -> reserva.put(a, new ArrayList<>()));
         int baixados = 0;
+        RuntimeException falha = null;
         for (int ano : ordem) {
             boolean jaEstava = emCache.contains(ano);
             if (!jaEstava && bastam(reserva, porArea, vistas) && (emCache.size() >= 2 || baixados >= 1)) break;
-            for (QuestaoEnem q : prova(ano, lingua)) {
+            List<QuestaoEnem> questoes;
+            try {
+                questoes = prova(ano, lingua);
+            } catch (RuntimeException e) {
+                // Uma prova que não baixa não derruba o simulado: ele sai com as outras.
+                log.warn("Prova do ENEM {} ({}) indisponível para o simulado: {}", ano, lingua, e.getMessage());
+                falha = e;
+                continue;
+            }
+            for (QuestaoEnem q : questoes) {
                 List<QuestaoEnem> daArea = reserva.get(q.area());
                 if (daArea != null) daArea.add(q);
             }
             if (!jaEstava) baixados++;
         }
+        // Nada veio de prova nenhuma: o problema é a fonte, não o pedido.
+        if (falha != null && reserva.values().stream().allMatch(List::isEmpty)) throw falha;
 
         List<QuestaoEnem> simulado = new ArrayList<>();
         for (String area : areas) {
