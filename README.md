@@ -32,6 +32,24 @@ docker compose up -d postgres
 
 As variáveis de ambiente aceitas estão em `.env.example`.
 
+### Opção 3 — sem Docker e sem PostgreSQL
+
+Só com o JDK 21:
+
+```bash
+./mvnw spring-boot:test-run
+```
+
+Sobe a API com o PostgreSQL embutido dos testes (os dados somem quando ela para) e liga um login
+de desenvolvimento, para usar o app antes de configurar o Google:
+
+```bash
+curl -X POST http://localhost:8080/api/auth/dev -H "Content-Type: application/json" \
+  -d '{"email":"aluno@example.com","name":"Aluno"}'
+```
+
+Esse login e o banco embutido ficam nos fontes de teste (`FocaaiApiLocal`): não existem no jar publicado.
+
 ## Testes
 
 ```bash
