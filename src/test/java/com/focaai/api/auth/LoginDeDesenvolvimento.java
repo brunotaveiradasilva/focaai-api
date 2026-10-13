@@ -1,11 +1,15 @@
 package com.focaai.api.auth;
 
+import com.focaai.api.email.EnviadorDeEmail;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Entrar sem Google, só para rodar o app contra a API local antes de existirem client IDs OAuth.
  * Vive nos fontes de teste: nunca vai para o jar publicado. Ligado apenas pelo {@code FocaaiApiLocal}.
+ * Também troca o envio de e-mail pelo console: o código do cadastro com e-mail aparece no log da API.
  */
 @TestConfiguration(proxyBeanMethods = false)
 @Import(LoginDeDesenvolvimento.Endpoint.class)
@@ -31,6 +36,13 @@ public class LoginDeDesenvolvimento {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(a -> a.anyRequest().permitAll())
                 .build();
+    }
+
+    @Bean
+    @Primary
+    EnviadorDeEmail emailNoConsole() {
+        var log = LoggerFactory.getLogger("email");
+        return (para, assunto, texto) -> log.info("E-mail para {}: {}{}{}", para, assunto, System.lineSeparator(), texto);
     }
 
     @RestController

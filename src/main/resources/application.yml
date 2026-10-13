@@ -40,6 +40,14 @@ app:
       # Client IDs OAuth do app no Google Cloud (web, Android e iOS), separados por vírgula.
       client-ids: ${GOOGLE_CLIENT_IDS:}
 
+  # Códigos de cadastro e de "esqueci minha senha", mandados pelo Resend (resend.com).
+  email:
+    resend-url: ${RESEND_API_URL:https://api.resend.com}
+    # Sem chave, entrar com e-mail fica fora (só Google).
+    resend-api-key: ${RESEND_API_KEY:}
+    # onboarding@resend.dev só entrega para o e-mail da conta do Resend; para todos, use um domínio verificado lá.
+    remetente: ${EMAIL_REMETENTE:FocaAI <onboarding@resend.dev>}
+
   enem:
     url: ${ENEM_API_URL:https://api.enem.dev/v1}
     # Baixa em segundo plano, ao subir, as provas que ainda não estão no banco.

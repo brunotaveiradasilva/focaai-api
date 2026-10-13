@@ -3,7 +3,10 @@ package com.focaai.api.auth;
 import com.focaai.api.comum.RecursoNaoEncontradoException;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -20,10 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthService auth;
+    private final LoginComEmail porEmail;
     private final UsuarioRepository usuarios;
 
-    public AuthController(AuthService auth, UsuarioRepository usuarios) {
+    public AuthController(AuthService auth, LoginComEmail porEmail, UsuarioRepository usuarios) {
         this.auth = auth;
+        this.porEmail = porEmail;
         this.usuarios = usuarios;
     }
 
@@ -31,6 +36,35 @@ public class AuthController {
     @PostMapping("/auth/google")
     public AuthService.Login entrarComGoogle(@Valid @RequestBody EntrarComGoogle corpo) {
         return auth.entrarComGoogle(corpo.idToken());
+    }
+
+    /** Primeiro passo do cadastro: manda o código para o e-mail. A conta só nasce na confirmação. */
+    @PostMapping("/auth/cadastro")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void pedirCadastro(@Valid @RequestBody PedirCadastro corpo) {
+        porEmail.pedirCadastro(corpo.email(), corpo.name(), corpo.password());
+    }
+
+    @PostMapping("/auth/cadastro/confirmar")
+    public AuthService.Login confirmarCadastro(@Valid @RequestBody ConfirmarCodigo corpo) {
+        return porEmail.confirmarCadastro(corpo.email(), corpo.code());
+    }
+
+    @PostMapping("/auth/entrar")
+    public AuthService.Login entrarComSenha(@Valid @RequestBody EntrarComSenha corpo) {
+        return porEmail.entrar(corpo.email(), corpo.password());
+    }
+
+    /** Sempre 204, tenha conta ou não: não revela quem está cadastrado. */
+    @PostMapping("/auth/senha/esqueci")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void esqueciASenha(@Valid @RequestBody SoEmail corpo) {
+        porEmail.pedirNovaSenha(corpo.email());
+    }
+
+    @PostMapping("/auth/senha/redefinir")
+    public AuthService.Login redefinirSenha(@Valid @RequestBody RedefinirSenha corpo) {
+        return porEmail.redefinirSenha(corpo.email(), corpo.code(), corpo.password());
     }
 
     @PostMapping("/auth/renovar")
@@ -58,6 +92,29 @@ public class AuthController {
     }
 
     public record EntrarComGoogle(@NotBlank String idToken) {
+    }
+
+    public record PedirCadastro(
+            @NotBlank @Email(message = "Confira o e-mail.") @Size(max = 254) String email,
+            @NotBlank @Size(max = 80) String name,
+            @NotBlank @Size(min = 8, max = 72, message = "A senha precisa ter de 8 a 72 caracteres.") String password) {
+    }
+
+    public record ConfirmarCodigo(
+            @NotBlank @Email(message = "Confira o e-mail.") String email,
+            @NotBlank @Pattern(regexp = "[0-9]{6}", message = "O código tem 6 números.") String code) {
+    }
+
+    public record EntrarComSenha(@NotBlank @Email(message = "Confira o e-mail.") String email, @NotBlank @Size(max = 200) String password) {
+    }
+
+    public record SoEmail(@NotBlank @Email(message = "Confira o e-mail.") String email) {
+    }
+
+    public record RedefinirSenha(
+            @NotBlank @Email(message = "Confira o e-mail.") String email,
+            @NotBlank @Pattern(regexp = "[0-9]{6}", message = "O código tem 6 números.") String code,
+            @NotBlank @Size(min = 8, max = 72, message = "A senha precisa ter de 8 a 72 caracteres.") String password) {
     }
 
     public record ComRefreshToken(@NotBlank String refreshToken) {
