@@ -1,0 +1,228 @@
+{
+ "aviso": "Índice das páginas oficiais do Acervo da Fuvest, de 2000 a 2026 (27 edições). Nenhum PDF foi baixado nem copiado. \"FUVEST 2026\" é o rótulo do site para o exame de 2026. Antes de usar no app, confirmar direitos de uso com a Fuvest/USP e com advogado.",
+ "indice_oficial": "https://www.fuvest.br/acervo-vestibular/",
+ "verificado_em": "2026-10-14",
+ "observacoes": [
+  "Páginas de 2000, 2001 e 2002 conferidas: trazem Manual do Candidato, Provas e Gabaritos (1ª fase e 2ª fase por disciplina) e Notas de Corte.",
+  "Formato da 1ª fase: 90 questões até a edição 2026; novo modelo de 80 questões a partir de 2027. Não misturar os dois em estatísticas sem marcar o modelo.",
+  "Ao final de 2026 o link de cada ano pode variar com ou sem barra final. O script trata os dois casos."
+ ],
+ "edicoes": [
+  {
+   "ano_do_exame": 2026,
+   "rotulo_no_site": "FUVEST 2026",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2026/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2025,
+   "rotulo_no_site": "FUVEST 2025",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2025/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2024,
+   "rotulo_no_site": "FUVEST 2024",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2024/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2023,
+   "rotulo_no_site": "FUVEST 2023",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2023/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2022,
+   "rotulo_no_site": "FUVEST 2022",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2022/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2021,
+   "rotulo_no_site": "FUVEST 2021",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2021/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2020,
+   "rotulo_no_site": "FUVEST 2020",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2020/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2019,
+   "rotulo_no_site": "FUVEST 2019",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2019/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2018,
+   "rotulo_no_site": "FUVEST 2018",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2018/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2017,
+   "rotulo_no_site": "FUVEST 2017",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2017/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2016,
+   "rotulo_no_site": "FUVEST 2016",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2016/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2015,
+   "rotulo_no_site": "FUVEST 2015",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2015/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2014,
+   "rotulo_no_site": "FUVEST 2014",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2014/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2013,
+   "rotulo_no_site": "FUVEST 2013",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2013/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2012,
+   "rotulo_no_site": "FUVEST 2012",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2012/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2011,
+   "rotulo_no_site": "FUVEST 2011",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2011/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2010,
+   "rotulo_no_site": "FUVEST 2010",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2010/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2009,
+   "rotulo_no_site": "FUVEST 2009",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2009/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2008,
+   "rotulo_no_site": "FUVEST 2008",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2008/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2007,
+   "rotulo_no_site": "FUVEST 2007",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2007/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2006,
+   "rotulo_no_site": "FUVEST 2006",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2006/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2005,
+   "rotulo_no_site": "FUVEST 2005",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2005/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2004,
+   "rotulo_no_site": "FUVEST 2004",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2004/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2003,
+   "rotulo_no_site": "FUVEST 2003",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2003/",
+   "estado": "pagina listada no indice oficial (conteudo da pagina nao conferido)",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2002,
+   "rotulo_no_site": "FUVEST 2002",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2002/",
+   "estado": "pagina listada no indice oficial e conteudo da pagina conferido",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2001,
+   "rotulo_no_site": "FUVEST 2001",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2001/",
+   "estado": "pagina listada no indice oficial e conteudo da pagina conferido",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  },
+  {
+   "ano_do_exame": 2000,
+   "rotulo_no_site": "FUVEST 2000",
+   "pagina_oficial": "https://www.fuvest.br/acervo-vestibular-2000/",
+   "estado": "pagina listada no indice oficial e conteudo da pagina conferido",
+   "direitos": "pendente",
+   "status_download": "nao baixado"
+  }
+ ]
+}

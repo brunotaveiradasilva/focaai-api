@@ -63,10 +63,10 @@ public class ConteudoController {
         return catalogo.topicosDoEdital(id, materia);
     }
 
-    /** Calendário completo, estrutura da prova e pesos por curso do Vestibular UFMS 2027. */
-    @GetMapping("/provas/ufms-2027")
-    public JsonNode provaUfms() {
-        return catalogo.provaUfms();
+    /** Calendário completo e estrutura de uma edição ({@code ufms-2027} traz também os pesos por curso). */
+    @GetMapping("/provas/{id}")
+    public JsonNode detalhesDaProva(@PathVariable String id) {
+        return catalogo.detalhesDaProva(id);
     }
 
     public record ConteudoResumo(

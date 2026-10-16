@@ -366,8 +366,8 @@
           ]
         }
       ],
-      "source": "Fuvest, calendário remarcado após o edital do ENEM 2026",
-      "checkedAt": "2026-10-06"
+      "source": "Fuvest, Guia de Jornada do Vestibular 2027",
+      "checkedAt": "2026-10-14"
     },
     {
       "id": "unicamp",
@@ -477,7 +477,8 @@
   },
   "editalDaProva": {
     "enem": "enem",
-    "ufms": "ufms-2027"
+    "ufms": "ufms-2027",
+    "fuvest": "fuvest-2027"
   },
   "pesoSemMapeamento": 0.5,
   "retaFinal": [

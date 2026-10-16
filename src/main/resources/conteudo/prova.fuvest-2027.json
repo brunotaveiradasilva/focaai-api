@@ -1,0 +1,40 @@
+{
+ "aviso": "Datas conferidas no Guia de Jornada do site da Fuvest. A 1ª fase de 2027 usa o NOVO modelo (80 questões, até 5 horas), confirmado pelo 2º Simulado Fuvest 2027, que reproduziu o formato. Edições anteriores (até 2026) tinham 90 questões.",
+ "exam": "Fuvest 2027",
+ "organizadora": "Fuvest",
+ "fonte": "https://www.fuvest.br/fuvest-2027-guia-de-jornada-do-vestibular-2027-da-fuvest-orienta-candidatos-em-todas-as-etapas-do-processo-seletivo/",
+ "verificado_em": "2026-10-14",
+ "datas": [
+  {
+   "label": "Inscrições",
+   "inicio": "2026-08-17",
+   "fim": "2026-10-09",
+   "status": "encerradas em 14/10/2026"
+  },
+  {
+   "label": "1ª fase",
+   "data": "2026-11-01"
+  },
+  {
+   "label": "2ª fase",
+   "inicio": "2026-12-06",
+   "fim": "2026-12-07"
+  },
+  {
+   "label": "Provas de competências específicas",
+   "inicio": "2026-12-08",
+   "fim": "2026-12-11"
+  },
+  {
+   "label": "1ª chamada",
+   "data": "2027-01-26"
+  }
+ ],
+ "estrutura": {
+  "primeira_fase_questoes": 80,
+  "duracao_max_horas": 5,
+  "questoes_sobre_leituras_obrigatorias_no_simulado": 8,
+  "nota_de_corte_redacao_simulado": "24 pontos (regra do simulado; confirmar a regra da prova real)",
+  "observacao": "modelo mudou: provas antigas (90 questões) não têm o mesmo formato"
+ }
+}

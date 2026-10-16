@@ -17,7 +17,8 @@ import tools.jackson.databind.json.JsonMapper;
 
 /**
  * O roadmap da API tem que ser exatamente o que o app montava sozinho. {@code referencia/roteiros.json}
- * foi gerado rodando o {@code catalog.ts} do app em várias combinações de matéria e prova.
+ * foi gerado rodando o {@code catalog.ts} do app em várias combinações de matéria e prova, quando só
+ * os editais do ENEM e da UFMS estavam mapeados; por isso o catálogo aqui não carrega o da Fuvest.
  */
 class CatalogoTests {
 
@@ -27,7 +28,7 @@ class CatalogoTests {
 
     @BeforeAll
     static void carregar() throws IOException {
-        catalogo = new Catalogo(JSON);
+        catalogo = new Catalogo(JSON, List.of("ufms-2027"));
         try (InputStream in = new ClassPathResource("referencia/roteiros.json").getInputStream()) {
             referencia = JSON.readTree(in);
         }

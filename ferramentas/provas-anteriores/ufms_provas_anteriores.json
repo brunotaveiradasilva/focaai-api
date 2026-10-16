@@ -1,0 +1,62 @@
+{
+ "aviso": "Catálogo de ONDE estão as provas anteriores da UFMS. Nenhum PDF foi baixado e nenhuma questão foi extraída. Direitos pendentes: confirmar autorização com a UFMS e com a banca de cada edição.",
+ "verificado_em": "2026-10-14",
+ "estrutura_da_prova_recente": {
+  "questoes": 60,
+  "linguagens": "15 (10 de Português e Literatura + 5 de Inglês ou Espanhol, à escolha do candidato)",
+  "ciencias_humanas": "15 (Geografia, Filosofia, História e Sociologia)",
+  "matematica": 15,
+  "ciencias_da_natureza": "15 (inferido por exclusão; confirmar no edital)",
+  "redacao": "sim, 0 a 1000",
+  "fonte": "reportagem do Correio do Estado sobre o gabarito da edição de 2025 e edital 344/2026"
+ },
+ "atencao_prova_digital": "Há candidatos que fazem a prova no modo digital e as questões aparecem em ordem aleatória e individual. Cada candidato pode ver o seu caderno no ambiente \"Prova Digital\" (link.ufms.br/prova). Ao extrair, conferir se o gabarito corresponde à ordem do PDF usado.",
+ "edicoes_confirmadas": [
+  {
+   "edicao": "Vestibular UFMS 2025",
+   "prova_aplicada": "2024-12-01",
+   "banca": "Fundação Vunesp",
+   "pagina": "https://www.vunesp.com.br/UFMS2401",
+   "provas_e_gabaritos": "https://www.vunesp.com.br/AreaCandidato/Posicionar/UFMS2401/ProvaGabarito",
+   "vagas": 6097,
+   "obs": "a página de Provas e Gabaritos é dinâmica: abrir no navegador para ver os PDFs"
+  },
+  {
+   "edicao": "Vestibular UFMS 2026",
+   "prova_aplicada": "2025-12-07",
+   "banca": "Fapec (o título do projeto na Fapec é PSV-UFMS 2026)",
+   "pagina": "https://ingresso.ufms.br/processo/vestibular/2026/",
+   "editais": {
+    "gabarito_preliminar": "Edital 500/2025 (09/12/2025)",
+    "gabarito_definitivo": "Edital 518/2025 (29/12/2025)"
+   },
+   "obs": "não conferi onde estão os PDFs das provas; olhar a página da UFMS e a página da Fapec"
+  },
+  {
+   "edicao": "Vestibular UFMS 2024",
+   "prova_aplicada": "2023-12",
+   "pagina": "https://ingresso.ufms.br/publicacao/em-andamento/vestibular-2024-edital-no-415-2023/",
+   "editais": {
+    "gabarito_definitivo": "Edital 415/2023 (22/12/2023)"
+   },
+   "obs": "banca e PDFs da prova não conferidos"
+  }
+ ],
+ "edicoes_a_verificar": [
+  "Vestibular UFMS 2023 e anteriores (formato e banca podem ser diferentes)",
+  "Vestibular UFMS 2027: prova em 06/12/2026, ainda não aplicada"
+ ],
+ "passe": {
+  "estado": "provas anteriores só encontradas em site NÃO oficial (OneStudy): PASSE 1 de 2017 a 2024, PASSE 2 de 2018 a 2024, PASSE 3 de 2019 a 2024",
+  "pagina_oficial_a_verificar": "https://ingresso.ufms.br/passe/",
+  "obs": "usar a fonte oficial; o site não oficial serve só de pista"
+ },
+ "nao_usar": [
+  "Sites que republicam questões já resolvidas (ex.: bancos de questões de terceiros): têm direitos próprios e não são fonte oficial."
+ ],
+ "estimativa_de_volume": {
+  "vestibular_ufms": "3 edições confirmadas x 60 questões = até 180 questões (2024, 2025 e 2026), se os PDFs forem encontrados",
+  "passe": "21 provas listadas x 60 questões = até 1.260 questões, mas só em fonte não oficial (a confirmar)",
+  "nota": "são estimativas minhas, não contagens"
+ }
+}

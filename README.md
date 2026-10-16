@@ -69,11 +69,28 @@ servido sem login:
 |---|---|
 | `GET /api/conteudo` | Matérias, áreas, cursos, concorrência, provas, vestibulares, ciclos e todos os assuntos |
 | `GET /api/conteudo/roteiros/{materia}?provas=enem,ufms` | Roadmap da matéria para as provas, com o peso de cada assunto em cada prova |
-| `GET /api/conteudo/editais` e `/editais/{id}` | Mapeamento edital → árvore de conteúdos (ENEM e UFMS 2027) |
+| `GET /api/conteudo/editais` e `/editais/{id}` | Mapeamento edital → árvore de conteúdos (ENEM, UFMS 2027 e Fuvest 2027) |
 | `GET /api/conteudo/editais/{id}/topicos?materia=fil` | Assuntos de um edital numa matéria, do mais pesado ao mais leve |
-| `GET /api/conteudo/provas/ufms-2027` | Calendário, estrutura da prova e pesos por curso da UFMS 2027 |
+| `GET /api/conteudo/provas/{id}` | Calendário e estrutura da prova (`ufms-2027`, com os pesos por curso, e `fuvest-2027`) |
 
-Para mudar uma data de prova ou um edital, edite o JSON e publique uma nova versão da API.
+Para mudar uma data de prova ou um edital, edite o JSON e publique uma nova versão da API. Um
+vestibular novo com edital mapeado ganha `edital.<id>.json` e `prova.<id>.json`, entra em
+`Catalogo.VESTIBULARES_MAPEADOS` e em `editalDaProva` no `catalogo.json`. Unicamp e Unesp ainda
+não têm edital mapeado: todos os assuntos contam como "citado em parte" (peso 0,5).
+
+O mapeamento da Fuvest saiu do Guia de Provas e Programas da edição 2026 (o de 2027 não estava
+publicado em PDF) e ainda não foi revisado por professor; o trecho de Sociologia do guia foi lido
+só até a habilidade 14.
+
+### Provas anteriores
+
+`ferramentas/provas-anteriores/` tem o índice do acervo oficial da Fuvest (2000 a 2026), o
+catálogo de onde estão as provas da UFMS e dois scripts em Python: `baixar_acervo_fuvest.py` lista
+(e com `--baixar`, baixa) os PDFs do acervo respeitando o `robots.txt`, e `extrair_questoes.py`
+transforma um PDF de prova em rascunhos de questão para revisão humana. Nada disso entra no app:
+toda questão sai como `rascunho`, com direitos `pendente`, até a Fuvest/USP e a UFMS autorizarem
+o uso. A 1ª fase da Fuvest tinha 90 questões até 2026 e tem 80 a partir de 2027: não misture os
+dois modelos em estatísticas.
 `docs/modelo-de-dados-rascunho.sql` é o rascunho do modelo para quando esse conteúdo e o banco
 de questões forem para o PostgreSQL.
 
