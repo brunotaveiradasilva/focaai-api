@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.focaai.api.comum.RecursoNaoEncontradoException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -42,14 +43,26 @@ public class Catalogo {
     private final Map<String, String> editalDaProva;
     private final double pesoSemMapeamento;
     private final Map<String, Edital> editais = new LinkedHashMap<>();
-    private final JsonNode provaUfms;
+    private final Map<String, JsonNode> detalhesDasProvas = new LinkedHashMap<>();
 
     private final List<Topico> topicos;
     private final Map<String, Topico> topicoPorId = new HashMap<>();
     private final Map<String, Map<String, Double>> pesosPorEdital = new HashMap<>();
     private final Map<String, List<TopicoNoRoteiro>> roteiros = new ConcurrentHashMap<>();
 
+    /** Vestibulares com edital mapeado; cada um tem {@code edital.<id>.json} e {@code prova.<id>.json}. */
+    public static final List<String> VESTIBULARES_MAPEADOS = List.of("ufms-2027", "fuvest-2027");
+
+    @Autowired
     public Catalogo(ObjectMapper json) {
+        this(json, VESTIBULARES_MAPEADOS);
+    }
+
+    /**
+     * Catálogo só com alguns dos editais de vestibular: as provas dos outros contam como sem edital
+     * mapeado. Serve aos testes que comparam com o app de antes da API, que só conhecia ENEM e UFMS.
+     */
+    public Catalogo(ObjectMapper json, List<String> vestibularesMapeados) {
         JsonNode c = ler(json, "catalogo.json");
         materias = json.convertValue(c.get("materias"), new TypeReference<>() { });
         areas = json.convertValue(c.get("areas"), new TypeReference<>() { });
@@ -59,7 +72,9 @@ public class Catalogo {
         vestibulares = json.convertValue(c.get("vestibulares"), new TypeReference<>() { });
         ciclos = json.convertValue(c.get("ciclos"), new TypeReference<>() { });
         trilhas = json.convertValue(c.get("trilhas"), new TypeReference<LinkedHashMap<String, String>>() { });
-        editalDaProva = json.convertValue(c.get("editalDaProva"), new TypeReference<>() { });
+        Map<String, String> mapeados = json.convertValue(c.get("editalDaProva"), new TypeReference<>() { });
+        mapeados.values().removeIf(e -> !e.equals("enem") && !vestibularesMapeados.contains(e));
+        editalDaProva = mapeados;
         pesoSemMapeamento = c.get("pesoSemMapeamento").asDouble();
         Map<String, String> hospedeira = json.convertValue(c.get("materiaHospedeira"), new TypeReference<>() { });
         Map<String, String> nomesExtras = json.convertValue(c.get("nomesExtras"), new TypeReference<>() { });
@@ -67,13 +82,15 @@ public class Catalogo {
 
         Taxonomia taxonomia = new Taxonomia(ler(json, "taxonomia.json"), nomesExtras);
         editais.put("enem", taxonomia.edital("enem", ler(json, "edital.enem.json")));
-        editais.put("ufms-2027", taxonomia.edital("ufms-2027", ler(json, "edital.ufms-2027.json")));
+        for (String id : vestibularesMapeados) {
+            editais.put(id, taxonomia.edital(id, ler(json, "edital." + id + ".json")));
+            detalhesDasProvas.put(id, ler(json, "prova." + id + ".json"));
+        }
         for (Edital e : editais.values()) {
             Map<String, Double> pesos = new HashMap<>();
             e.topics().forEach(t -> pesos.put(t.topicId(), t.weight()));
             pesosPorEdital.put(e.id(), pesos);
         }
-        provaUfms = ler(json, "prova.ufms-2027.json");
 
         Set<String> comAba = new HashSet<>();
         materias.forEach(m -> comAba.add(m.id()));
@@ -137,8 +154,11 @@ public class Catalogo {
         return topicos;
     }
 
-    public JsonNode provaUfms() {
-        return provaUfms;
+    /** Calendário completo e estrutura de uma edição (ex.: {@code fuvest-2027}), como o organizador publica. */
+    public JsonNode detalhesDaProva(String id) {
+        JsonNode p = detalhesDasProvas.get(id);
+        if (p == null) throw new RecursoNaoEncontradoException("Prova não encontrada: " + id);
+        return p;
     }
 
     public Materia materia(String id) {

@@ -34,7 +34,7 @@ class PlanejadorTests {
 
     @BeforeAll
     static void carregar() throws IOException {
-        planejador = new Planejador(new Catalogo(JSON));
+        planejador = new Planejador(new Catalogo(JSON, List.of("ufms-2027")));
         try (InputStream in = new ClassPathResource("referencia/plano.json").getInputStream()) {
             casos = JSON.readTree(in);
         }

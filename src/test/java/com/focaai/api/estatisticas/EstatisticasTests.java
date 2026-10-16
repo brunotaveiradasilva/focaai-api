@@ -46,7 +46,7 @@ class EstatisticasTests {
 
     @BeforeAll
     static void carregar() throws IOException {
-        catalogo = new Catalogo(JSON);
+        catalogo = new Catalogo(JSON, List.of("ufms-2027"));
         planejador = new Planejador(catalogo);
         pessoas = new Pessoas(catalogo, JSON);
         try (InputStream in = new ClassPathResource("referencia/estatisticas.json").getInputStream()) {

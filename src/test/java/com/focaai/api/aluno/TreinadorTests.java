@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import com.focaai.api.conteudo.Catalogo;
 
@@ -24,7 +25,7 @@ class TreinadorTests {
 
     @Test
     void decideIgualAoApp() throws IOException {
-        Treinador treinador = new Treinador(new Catalogo(JSON));
+        Treinador treinador = new Treinador(new Catalogo(JSON, List.of("ufms-2027")));
         JsonNode casos;
         try (InputStream in = new ClassPathResource("referencia/treinador.json").getInputStream()) {
             casos = JSON.readTree(in);
