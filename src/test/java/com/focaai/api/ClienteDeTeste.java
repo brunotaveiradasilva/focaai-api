@@ -30,6 +30,17 @@ public class ClienteDeTeste {
         return aluno;
     }
 
+    /** Entra com um aluno novo, sem perfil, com esse nome. */
+    public ContaDeTeste.Logado novoAluno(String nome) {
+        aluno = contas.criar(nome);
+        return aluno;
+    }
+
+    /** Volta a chamar como um aluno criado antes. */
+    public void como(ContaDeTeste.Logado outro) {
+        aluno = outro;
+    }
+
     /** Entra com um aluno novo que já fez o onboarding com {@link PerfilDeTeste}. */
     public ContaDeTeste.Logado novoAlunoComPerfil() {
         novoAluno();

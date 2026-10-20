@@ -21,8 +21,12 @@ public class ContaDeTeste {
     }
 
     public Logado criar() {
+        return criar("Aluno de teste");
+    }
+
+    public Logado criar(String nome) {
         Usuario u = new Usuario("teste-" + UUID.randomUUID());
-        u.atualizarComGoogle(u.getGoogleSub() + "@gmail.com", "Aluno de teste", null);
+        u.atualizarComGoogle(u.getGoogleSub() + "@gmail.com", nome, null);
         usuarios.save(u);
         return new Logado(u.getId(), "Bearer " + tokens.acesso(u));
     }
