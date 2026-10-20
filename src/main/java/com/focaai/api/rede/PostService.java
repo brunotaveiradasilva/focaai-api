@@ -26,16 +26,18 @@ public class PostService {
     private static final int MAX_COMENTARIOS = 200;
 
     private static final String POSTS = """
-            SELECT p.id, p.texto, p.criado_em, u.id AS u_id, u.nome AS u_nome, u.foto AS u_foto,
+            SELECT p.id, p.texto, p.criado_em, p.imagem_id, u.id AS u_id, u.nome AS u_nome, u.foto AS u_foto,
                    (SELECT count(*) FROM comentario c WHERE c.post_id = p.id) AS comentarios
             FROM post p JOIN usuario u ON u.id = p.autor_id
             """;
 
     private final RedeService rede;
+    private final ImagemService imagens;
     private final JdbcClient banco;
 
-    public PostService(RedeService rede, JdbcClient banco) {
+    public PostService(RedeService rede, ImagemService imagens, JdbcClient banco) {
         this.rede = rede;
+        this.imagens = imagens;
         this.banco = banco;
     }
 
@@ -63,10 +65,13 @@ public class PostService {
                 """).param("autor", autor).param("antes", antes == null ? Long.MAX_VALUE : antes).param("limite", POR_PAGINA));
     }
 
+    /** {@code foto}: uma imagem enviada por este aluno ({@code /api/imagens/...}), ou nula. Com foto, o texto pode ficar vazio. */
     @Transactional
-    public Post publicar(UUID eu, String texto) {
-        long id = banco.sql("INSERT INTO post (autor_id, texto) VALUES (?, ?) RETURNING id")
-                .params(eu, texto(texto, MAX_POST, "O post")).query(Long.class).single();
+    public Post publicar(UUID eu, String texto, String foto) {
+        UUID imagem = foto == null ? null : imagens.minha(eu, foto);
+        String limpo = imagem != null && (texto == null || texto.isBlank()) ? "" : texto(texto, MAX_POST, "O post");
+        long id = banco.sql("INSERT INTO post (autor_id, texto, imagem_id) VALUES (?, ?, ?) RETURNING id")
+                .params(eu, limpo, imagem).query(Long.class).single();
         return post(eu, id);
     }
 
@@ -142,7 +147,7 @@ public class PostService {
     private static Post post(ResultSet rs, UUID eu) throws SQLException {
         Membro autor = Membro.de(rs);
         return new Post(rs.getLong("id"), autor, rs.getString("texto"), rs.getObject("criado_em", OffsetDateTime.class).toInstant(),
-                rs.getInt("comentarios"), autor.id().equals(eu));
+                rs.getInt("comentarios"), autor.id().equals(eu), ImagemService.url(rs.getObject("imagem_id", UUID.class)));
     }
 
     private static Comentario comentario(ResultSet rs, UUID eu, Post post) throws SQLException {
@@ -158,8 +163,8 @@ public class PostService {
         return limpo;
     }
 
-    /** {@code mine}: o aluno logado escreveu (e pode apagar). */
-    public record Post(long id, Membro author, String text, Instant createdAt, int comments, boolean mine) {
+    /** {@code mine}: o aluno logado escreveu (e pode apagar). {@code image}: endereço da foto na API, ou nulo. */
+    public record Post(long id, Membro author, String text, Instant createdAt, int comments, boolean mine, String image) {
     }
 
     /** {@code canDelete}: o aluno logado escreveu o comentário ou o post. */

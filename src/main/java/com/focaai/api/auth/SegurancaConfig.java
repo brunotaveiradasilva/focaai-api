@@ -32,7 +32,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * Tudo exige o token de acesso da API ({@code Authorization: Bearer ...}), menos o conteúdo fixo, o
- * login (Google ou e-mail e senha) e o health check.
+ * login (Google ou e-mail e senha), a leitura das fotos e o health check.
  */
 @Configuration
 public class SegurancaConfig {
@@ -49,6 +49,8 @@ public class SegurancaConfig {
                 .authorizeHttpRequests(a -> a
                         .requestMatchers("/actuator/health").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/conteudo/**").permitAll()
+                        // Fotos abrem direto na tela, sem token; o id aleatório é o endereço (ver ImagemController).
+                        .requestMatchers(HttpMethod.GET, "/api/imagens/**").permitAll()
                         // Entrar, cadastrar, renovar, sair e trocar a senha: tudo antes de ter token.
                         .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
                         .anyRequest().authenticated())

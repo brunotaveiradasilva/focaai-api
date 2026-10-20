@@ -2,6 +2,8 @@ package com.focaai.api.rede;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Base64;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
 import tools.jackson.databind.JsonNode;
 
@@ -24,6 +27,7 @@ import tools.jackson.databind.JsonNode;
 class RedeSocialTests {
 
     @Autowired ClienteDeTeste api;
+    @Autowired MockMvcTester mvc;
 
     // Sobrenome único: o banco é compartilhado por todos os testes da execução.
     String sobrenome;
@@ -109,12 +113,65 @@ class RedeSocialTests {
         assertThat(api.ler(api.get("/api/usuarios?busca=%25")).size()).isZero();
     }
 
+    Map<String, Object> edicao(String nome, String bio, String foto) {
+        Map<String, Object> corpo = new HashMap<>();
+        corpo.put("name", nome);
+        corpo.put("bio", bio);
+        corpo.put("picture", foto);
+        return corpo;
+    }
+
     @Test
-    void bio() {
-        JsonNode perfil = api.ler(api.put("/api/eu/bio", Map.of("bio", "  Medicina na USP  ")));
+    void editarPerfil() {
+        JsonNode perfil = api.ler(api.put("/api/eu/perfil-publico", edicao("  Ana Clara  ", "  Medicina na USP  ", null)));
+        assertThat(perfil.get("user").get("name").asString()).isEqualTo("Ana Clara");
         assertThat(perfil.get("bio").asString()).isEqualTo("Medicina na USP");
-        assertThat(api.put("/api/eu/bio", Map.of("bio", "x".repeat(161)))).hasStatus(400);
-        assertThat(api.ler(api.put("/api/eu/bio", Map.of("bio", ""))).get("bio").isNull()).isTrue();
+        assertThat(perfil.get("joinedAt").asString()).isNotBlank();
+        assertThat(api.put("/api/eu/perfil-publico", edicao("Ana", "x".repeat(161), null))).hasStatus(400);
+        assertThat(api.put("/api/eu/perfil-publico", edicao("   ", null, null))).hasStatus(400);
+        assertThat(api.put("/api/eu/perfil-publico", edicao("x".repeat(51), null, null))).hasStatus(400);
+        assertThat(api.ler(api.put("/api/eu/perfil-publico", edicao("Ana", "", null))).get("bio").isNull()).isTrue();
+    }
+
+    // PNG de 1x1 pixel.
+    static final String PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
+
+    String enviarFoto() {
+        return api.ler(api.post("/api/imagens", Map.of("data", PNG))).get("url").asString();
+    }
+
+    @Test
+    void fotoNoPerfilENoPost() {
+        String foto = enviarFoto();
+        assertThat(foto).startsWith("/api/imagens/");
+        // Abre sem token, para a tela carregar direto.
+        assertThat(mvc.get().uri(foto)).hasStatusOk().hasContentType("image/png");
+        assertThat(mvc.get().uri("/api/imagens/" + UUID.randomUUID())).hasStatus(404);
+
+        JsonNode perfil = api.ler(api.put("/api/eu/perfil-publico", edicao("Ana", null, foto)));
+        assertThat(perfil.get("user").get("picture").asString()).isEqualTo(foto);
+        // Mandar a mesma foto de novo (só mudando o nome) continua valendo.
+        assertThat(api.put("/api/eu/perfil-publico", edicao("Ana B.", null, foto))).hasStatusOk();
+
+        JsonNode post = api.ler(api.post("/api/posts", Map.of("text", "", "image", foto)));
+        assertThat(post.get("image").asString()).isEqualTo(foto);
+        assertThat(post.get("text").asString()).isEmpty();
+        assertThat(api.ler(api.post("/api/posts", Map.of("text", "Sem foto"))).has("image")).isFalse();
+
+        // A foto de outra aluna não serve.
+        api.como(bia);
+        assertThat(api.put("/api/eu/perfil-publico", edicao("Bia", null, foto))).hasStatus(400);
+        assertThat(api.post("/api/posts", Map.of("text", "Oi", "image", foto))).hasStatus(400);
+        assertThat(api.put("/api/eu/perfil-publico", edicao("Bia", null, "https://site-qualquer.com/a.png"))).hasStatus(400);
+    }
+
+    @Test
+    void imagemInvalida() {
+        assertThat(api.post("/api/imagens", Map.of("data", "nao-e-base64!"))).hasStatus(400);
+        assertThat(api.post("/api/imagens", Map.of("data", Base64.getEncoder().encodeToString("texto".getBytes()))))
+                .hasStatus(400);
+        String grande = Base64.getEncoder().encodeToString(new byte[ImagemService.MAX_BYTES + 1]);
+        assertThat(api.post("/api/imagens", Map.of("data", grande))).hasStatus(400);
     }
 
     @Test

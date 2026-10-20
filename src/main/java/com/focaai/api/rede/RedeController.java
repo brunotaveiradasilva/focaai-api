@@ -48,9 +48,10 @@ public class RedeController {
         return posts.doAutor(UsuarioAtual.id(jwt), id, antes);
     }
 
-    @PutMapping("/api/eu/bio")
-    public RedeService.PerfilPublico definirBio(@AuthenticationPrincipal Jwt jwt, @RequestBody Bio corpo) {
-        return rede.definirBio(UsuarioAtual.id(jwt), corpo.bio());
+    /** Nome, bio e foto do perfil. */
+    @PutMapping("/api/eu/perfil-publico")
+    public RedeService.PerfilPublico editarPerfil(@AuthenticationPrincipal Jwt jwt, @RequestBody EdicaoDoPerfil corpo) {
+        return rede.editarPerfil(UsuarioAtual.id(jwt), corpo.name(), corpo.bio(), corpo.picture());
     }
 
     @GetMapping("/api/eu/amigos")
@@ -80,8 +81,8 @@ public class RedeController {
 
     @PostMapping("/api/posts")
     @ResponseStatus(HttpStatus.CREATED)
-    public PostService.Post publicar(@AuthenticationPrincipal Jwt jwt, @RequestBody Texto corpo) {
-        return posts.publicar(UsuarioAtual.id(jwt), corpo.text());
+    public PostService.Post publicar(@AuthenticationPrincipal Jwt jwt, @RequestBody NovoPost corpo) {
+        return posts.publicar(UsuarioAtual.id(jwt), corpo.text(), corpo.image());
     }
 
     @GetMapping("/api/posts/{id}")
@@ -107,7 +108,12 @@ public class RedeController {
         posts.apagarComentario(UsuarioAtual.id(jwt), id, comentarioId);
     }
 
-    public record Bio(String bio) {
+    /** {@code picture}: a foto que já estava, uma enviada em {@code POST /api/imagens}, ou nula para tirar. */
+    public record EdicaoDoPerfil(String name, String bio, String picture) {
+    }
+
+    /** {@code image}: uma foto enviada em {@code POST /api/imagens}, ou nula. */
+    public record NovoPost(String text, String image) {
     }
 
     public record Texto(String text) {
