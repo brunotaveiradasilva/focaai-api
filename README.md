@@ -215,6 +215,27 @@ As datas seguem o calendário do aluno: o app manda o fuso em `X-Timezone`
 As pessoas sugeridas ainda são exemplos fictícios (`conteudo/pessoas-exemplo.json`), como no app;
 a combinação já é a de verdade e vai rodar igual quando houver perfis reais para cruzar.
 
+## Rede (amizades, posts e comentários)
+
+Entre alunos de verdade. Amizade é mútua: um pede, o outro aceita. Um post só aparece para o autor e
+os amigos dele, e só eles comentam; para os outros, o post responde 404. Ninguém vê o e-mail de
+ninguém: só nome, foto e bio.
+
+| Endpoint | O que faz |
+|---|---|
+| `GET /api/usuarios?busca=texto` | Alunos com o texto no nome (mín. 2 letras, até 20), com a relação com cada um |
+| `GET /api/usuarios/{id}` | Perfil: nome, foto, bio, nº de amigos e de posts, e a relação (`self`, `friends`, `sent`, `received` ou nula) |
+| `GET /api/usuarios/{id}/posts?antes=` | Posts do aluno (403 se não for amigo) |
+| `PUT /api/eu/bio` | Muda a bio (até 160 caracteres; vazia apaga) |
+| `GET /api/eu/amigos` | Amigos, pedidos recebidos e pedidos enviados |
+| `PUT /api/eu/amigos/{id}` | Pede amizade, ou aceita se a outra pessoa já tinha pedido |
+| `DELETE /api/eu/amigos/{id}` | Desfaz a amizade, cancela o pedido enviado ou recusa o recebido |
+| `GET /api/eu/feed?antes=` | Posts do aluno e dos amigos, do mais novo ao mais antigo, 20 por página (`next` vai em `antes`) |
+| `POST /api/posts` | Publica (`{ "text" }`, até 2000 caracteres) |
+| `GET` / `DELETE /api/posts/{id}` | Abre o post com os comentários / apaga (só o autor) |
+| `POST /api/posts/{id}/comentarios` | Comenta (até 500 caracteres) |
+| `DELETE /api/posts/{id}/comentarios/{id}` | Apaga o comentário (quem escreveu ou o autor do post) |
+
 ## Importar os dados do aparelho
 
 Antes da API, o app guardava tudo só no aparelho. No primeiro login, ele manda esse estado

@@ -27,6 +27,11 @@ public class TratadorDeErros {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("erro", ex.getMessage()));
     }
 
+    @ExceptionHandler(ProibidoException.class)
+    public ResponseEntity<Map<String, String>> proibido(ProibidoException ex) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("erro", ex.getMessage()));
+    }
+
     @ExceptionHandler(ConflitoException.class)
     public ResponseEntity<Map<String, String>> conflito(ConflitoException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("erro", ex.getMessage()));
