@@ -32,10 +32,12 @@ public class RedeService {
     static final String RECEBIDO = "received";
 
     private final ImagemService imagens;
+    private final NotificacaoService notificacoes;
     private final JdbcClient banco;
 
-    public RedeService(ImagemService imagens, JdbcClient banco) {
+    public RedeService(ImagemService imagens, NotificacaoService notificacoes, JdbcClient banco) {
         this.imagens = imagens;
+        this.notificacoes = notificacoes;
         this.banco = banco;
     }
 
@@ -126,8 +128,11 @@ public class RedeService {
         if (!existe(outro)) throw new RecursoNaoEncontradoException("Aluno não encontrado.");
         int aceitos = banco.sql("UPDATE amizade SET aceita_em = now() WHERE de = ? AND para = ? AND aceita_em IS NULL")
                 .params(outro, eu).update();
-        if (aceitos == 0) {
-            banco.sql("INSERT INTO amizade (de, para) VALUES (?, ?) ON CONFLICT DO NOTHING").params(eu, outro).update();
+        if (aceitos > 0) {
+            notificacoes.aoAceitarAmizade(eu, outro);
+        } else if (banco.sql("INSERT INTO amizade (de, para) VALUES (?, ?) ON CONFLICT DO NOTHING").params(eu, outro).update() > 0) {
+            // Só um pedido novo avisa: pedir de novo não repete a notificação.
+            notificacoes.aoPedirAmizade(eu, outro);
         }
         return new Relacao(relacao(eu, outro));
     }
@@ -137,6 +142,7 @@ public class RedeService {
     public void desfazerAmizade(UUID eu, UUID outro) {
         banco.sql("DELETE FROM amizade WHERE (de = :eu AND para = :outro) OR (de = :outro AND para = :eu)")
                 .param("eu", eu).param("outro", outro).update();
+        notificacoes.aoDesfazerAmizade(eu, outro);
     }
 
     /** O próprio aluno ou um amigo: quem pode ver os posts de {@code autor}. */
