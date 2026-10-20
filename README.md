@@ -238,6 +238,20 @@ ninguém: só nome, foto e bio.
 | `POST /api/posts/{id}/comentarios` | Comenta (até 500 caracteres) |
 | `DELETE /api/posts/{id}/comentarios/{id}` | Apaga o comentário (quem escreveu ou o autor do post) |
 
+### Atividade (notificações)
+
+Como a do Instagram: o aluno recebe um aviso quando pedem ou aceitam a amizade dele, quando um amigo
+posta e quando comentam nos seus posts. Se passar 7 dias sem fazer simulado (e a conta tiver mais de
+3 dias), ganha um lembrete, no máximo um por semana; ele nasce quando o app consulta a atividade, sem
+tarefa agendada. Aceitar, recusar ou desfazer a amizade tira os avisos desse pedido; apagar o post
+tira os avisos dele.
+
+| Endpoint | O que faz |
+|---|---|
+| `GET /api/eu/notificacoes` | As 50 mais recentes (`type`: `friend_request`, `friend_accepted`, `comment`, `post` ou `simulado_reminder`, com `actor`, `postId` e `excerpt` quando houver) e `unread` |
+| `GET /api/eu/notificacoes/nao-lidas` | Só o número de não lidas, para o sininho |
+| `POST /api/eu/notificacoes/lidas` | Marca todas como lidas |
+
 ## Importar os dados do aparelho
 
 Antes da API, o app guardava tudo só no aparelho. No primeiro login, ele manda esse estado

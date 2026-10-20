@@ -33,11 +33,13 @@ public class PostService {
 
     private final RedeService rede;
     private final ImagemService imagens;
+    private final NotificacaoService notificacoes;
     private final JdbcClient banco;
 
-    public PostService(RedeService rede, ImagemService imagens, JdbcClient banco) {
+    public PostService(RedeService rede, ImagemService imagens, NotificacaoService notificacoes, JdbcClient banco) {
         this.rede = rede;
         this.imagens = imagens;
+        this.notificacoes = notificacoes;
         this.banco = banco;
     }
 
@@ -72,6 +74,7 @@ public class PostService {
         String limpo = imagem != null && (texto == null || texto.isBlank()) ? "" : texto(texto, MAX_POST, "O post");
         long id = banco.sql("INSERT INTO post (autor_id, texto, imagem_id) VALUES (?, ?, ?) RETURNING id")
                 .params(eu, limpo, imagem).query(Long.class).single();
+        notificacoes.aoPublicar(eu, id, limpo.isEmpty() ? null : limpo);
         return post(eu, id);
     }
 
@@ -99,8 +102,10 @@ public class PostService {
     @Transactional
     public Comentario comentar(UUID eu, long postId, String texto) {
         Post post = visivel(eu, postId);
+        String limpo = texto(texto, MAX_COMENTARIO, "O comentário");
         long id = banco.sql("INSERT INTO comentario (post_id, autor_id, texto) VALUES (?, ?, ?) RETURNING id")
-                .params(postId, eu, texto(texto, MAX_COMENTARIO, "O comentário")).query(Long.class).single();
+                .params(postId, eu, limpo).query(Long.class).single();
+        notificacoes.aoComentar(eu, post.author().id(), postId, limpo);
         return banco.sql("""
                 SELECT c.id, c.texto, c.criado_em, u.id AS u_id, u.nome AS u_nome, u.foto AS u_foto
                 FROM comentario c JOIN usuario u ON u.id = c.autor_id
