@@ -1,5 +1,7 @@
 package com.focaai.api.rede;
 
+import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -20,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class RedeService {
 
     static final int MAX_BIO = 160;
+    static final int MAX_NOME = 50;
     private static final int MAX_BUSCA = 20;
 
     // Relação do aluno logado com outro, como o app recebe.
@@ -28,30 +31,45 @@ public class RedeService {
     static final String ENVIADO = "sent";
     static final String RECEBIDO = "received";
 
+    private final ImagemService imagens;
     private final JdbcClient banco;
 
-    public RedeService(JdbcClient banco) {
+    public RedeService(ImagemService imagens, JdbcClient banco) {
+        this.imagens = imagens;
         this.banco = banco;
     }
 
     @Transactional(readOnly = true)
     public PerfilPublico perfil(UUID eu, UUID id) {
-        record Linha(Membro membro, String bio) {
+        record Linha(Membro membro, String bio, Instant desde) {
         }
-        Linha linha = banco.sql("SELECT id AS u_id, nome AS u_nome, foto AS u_foto, bio FROM usuario WHERE id = ?")
-                .param(id).query((rs, n) -> new Linha(Membro.de(rs), rs.getString("bio"))).optional()
+        Linha linha = banco.sql("SELECT id AS u_id, nome AS u_nome, foto AS u_foto, bio, criado_em FROM usuario WHERE id = ?")
+                .param(id)
+                .query((rs, n) -> new Linha(Membro.de(rs), rs.getString("bio"),
+                        rs.getObject("criado_em", OffsetDateTime.class).toInstant()))
+                .optional()
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Aluno não encontrado."));
         int amigos = banco.sql("SELECT count(*) FROM amizade WHERE (de = :id OR para = :id) AND aceita_em IS NOT NULL")
                 .param("id", id).query(Integer.class).single();
         int posts = banco.sql("SELECT count(*) FROM post WHERE autor_id = ?").param(id).query(Integer.class).single();
-        return new PerfilPublico(linha.membro(), linha.bio(), amigos, posts, relacao(eu, id));
+        return new PerfilPublico(linha.membro(), linha.bio(), amigos, posts, relacao(eu, id), linha.desde());
     }
 
+    /**
+     * Nome, bio e foto, como o app mostra na edição. {@code foto}: a que já estava (inclusive a do
+     * Google), uma enviada por este aluno ({@code /api/imagens/...}) ou nula para tirar.
+     */
     @Transactional
-    public PerfilPublico definirBio(UUID eu, String bio) {
-        String texto = bio == null ? "" : bio.strip();
-        if (texto.length() > MAX_BIO) throw new RequisicaoInvalidaException("A bio pode ter até " + MAX_BIO + " caracteres.");
-        banco.sql("UPDATE usuario SET bio = ? WHERE id = ?").params(texto.isEmpty() ? null : texto, eu).update();
+    public PerfilPublico editarPerfil(UUID eu, String nome, String bio, String foto) {
+        String novoNome = nome == null ? "" : nome.strip();
+        if (novoNome.isEmpty()) throw new RequisicaoInvalidaException("Escreva seu nome.");
+        if (novoNome.length() > MAX_NOME) throw new RequisicaoInvalidaException("O nome pode ter até " + MAX_NOME + " caracteres.");
+        String novaBio = bio == null ? "" : bio.strip();
+        if (novaBio.length() > MAX_BIO) throw new RequisicaoInvalidaException("A bio pode ter até " + MAX_BIO + " caracteres.");
+        String fotoAtual = banco.sql("SELECT foto FROM usuario WHERE id = ?").param(eu).query(String.class).optional().orElse(null);
+        if (foto != null && !foto.equals(fotoAtual)) imagens.minha(eu, foto);
+        banco.sql("UPDATE usuario SET nome = ?, bio = ?, foto = ?, perfil_editado = true WHERE id = ?")
+                .params(novoNome, novaBio.isEmpty() ? null : novaBio, foto, eu).update();
         return perfil(eu, eu);
     }
 
@@ -151,10 +169,10 @@ public class RedeService {
 
     /**
      * {@code friendship}: {@code self} (o próprio aluno), {@code friends}, {@code sent} (pedido
-     * enviado), {@code received} (pedido recebido) ou nulo.
+     * enviado), {@code received} (pedido recebido) ou nulo. {@code joinedAt}: quando criou a conta.
      */
     @JsonInclude(JsonInclude.Include.ALWAYS)
-    public record PerfilPublico(Membro user, String bio, int friends, int posts, String friendship) {
+    public record PerfilPublico(Membro user, String bio, int friends, int posts, String friendship, Instant joinedAt) {
     }
 
     @JsonInclude(JsonInclude.Include.ALWAYS)

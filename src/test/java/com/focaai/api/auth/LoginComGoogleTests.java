@@ -3,6 +3,7 @@ package com.focaai.api.auth;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,22 @@ class LoginComGoogleTests {
         assertThat(segundo.get("user").get("id").asString()).isEqualTo(id);
         assertThat(segundo.get("user").get("name").asString()).isEqualTo("Nome Novo");
         assertThat(usuarios.count()).isEqualTo(1);
+    }
+
+    @Test
+    void nomeMudadoNoAppNaoVoltaComOGoogle() {
+        String token = entrar(GoogleDeTeste.idToken("333")).get("accessToken").asString();
+        Map<String, Object> edicao = new HashMap<>();
+        edicao.put("name", "Apelido");
+        edicao.put("bio", null);
+        edicao.put("picture", null);
+        assertThat(mvc.put().uri("/api/eu/perfil-publico").header("Authorization", "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON).content(json.writeValueAsString(edicao))).hasStatusOk();
+
+        JsonNode depois = entrar(GoogleDeTeste.idToken("333", Map.of("name", "Nome do Google")));
+        assertThat(depois.get("user").get("name").asString()).isEqualTo("Apelido");
+        // Tirou a foto no app: a do Google não volta.
+        assertThat(depois.get("user").has("picture")).isFalse();
     }
 
     @Test

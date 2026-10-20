@@ -226,12 +226,14 @@ ninguém: só nome, foto e bio.
 | `GET /api/usuarios?busca=texto` | Alunos com o texto no nome (mín. 2 letras, até 20), com a relação com cada um |
 | `GET /api/usuarios/{id}` | Perfil: nome, foto, bio, nº de amigos e de posts, e a relação (`self`, `friends`, `sent`, `received` ou nula) |
 | `GET /api/usuarios/{id}/posts?antes=` | Posts do aluno (403 se não for amigo) |
-| `PUT /api/eu/bio` | Muda a bio (até 160 caracteres; vazia apaga) |
+| `PUT /api/eu/perfil-publico` | Muda nome (até 50), bio (até 160; vazia apaga) e foto (`{ name, bio, picture }`). Depois disso o login com Google não sobrescreve mais nome e foto |
+| `POST /api/imagens` | Envia uma foto (`{ "data": base64 }`, JPEG, PNG ou WebP, até 2 MB) e devolve `{ id, url }` |
+| `GET /api/imagens/{id}` | A foto, sem token (o id aleatório é o endereço), com cache de um ano |
 | `GET /api/eu/amigos` | Amigos, pedidos recebidos e pedidos enviados |
 | `PUT /api/eu/amigos/{id}` | Pede amizade, ou aceita se a outra pessoa já tinha pedido |
 | `DELETE /api/eu/amigos/{id}` | Desfaz a amizade, cancela o pedido enviado ou recusa o recebido |
 | `GET /api/eu/feed?antes=` | Posts do aluno e dos amigos, do mais novo ao mais antigo, 20 por página (`next` vai em `antes`) |
-| `POST /api/posts` | Publica (`{ "text" }`, até 2000 caracteres) |
+| `POST /api/posts` | Publica (`{ "text", "image" }`: texto até 2000 caracteres, foto opcional vinda de `/api/imagens`; com foto, o texto pode ficar vazio) |
 | `GET` / `DELETE /api/posts/{id}` | Abre o post com os comentários / apaga (só o autor) |
 | `POST /api/posts/{id}/comentarios` | Comenta (até 500 caracteres) |
 | `DELETE /api/posts/{id}/comentarios/{id}` | Apaga o comentário (quem escreveu ou o autor do post) |

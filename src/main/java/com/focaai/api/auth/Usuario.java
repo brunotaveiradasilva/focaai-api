@@ -47,6 +47,10 @@ public class Usuario {
     @Column(name = "ultimo_login_em", nullable = false)
     private Instant ultimoLoginEm;
 
+    /** Nome ou foto mudados no app: o login com Google para de sobrescrevê-los. */
+    @Column(name = "perfil_editado", nullable = false)
+    private boolean perfilEditado;
+
     protected Usuario() {
     }
 
@@ -71,11 +75,13 @@ public class Usuario {
         return email.trim().toLowerCase(Locale.ROOT);
     }
 
-    /** Nome, e-mail e foto acompanham a conta Google a cada login. */
+    /** Nome, e-mail e foto acompanham a conta Google a cada login, até o aluno mudar nome ou foto no app. */
     public void atualizarComGoogle(String email, String nome, String foto) {
         this.email = email;
-        this.nome = nome;
-        this.foto = foto;
+        if (!perfilEditado) {
+            this.nome = nome;
+            this.foto = foto;
+        }
         this.ultimoLoginEm = Instant.now();
     }
 
