@@ -79,4 +79,14 @@ class CatalogoTests {
     void cursoDesconhecidoViraOutro() {
         assertThat(catalogo.curso("nao-existe").id()).isEqualTo("outro");
     }
+
+    @Test
+    void cursosDosVestibularesExistemNoCatalogo() {
+        List<String> ids = catalogo.cursos().stream().map(Curso::id).toList();
+        assertThat(ids).doesNotHaveDuplicates().last().isEqualTo("outro");
+        for (Vestibular v : catalogo.vestibulares()) {
+            assertThat(v.courses()).as(v.id()).isNotEmpty().doesNotHaveDuplicates();
+            assertThat(ids).as(v.id()).containsAll(v.courses());
+        }
+    }
 }
