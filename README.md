@@ -287,7 +287,23 @@ tem perfil recusa a importação (409) em vez de misturar dois históricos.
    responder. (Fica no painel e não num `railway.json`: esse formato deixa de funcionar em 01/12/2026.)
 6. Gere um domínio público em **Settings → Networking → Generate Domain**. Essa URL
    (`https://algo.up.railway.app`) é o `EXPO_PUBLIC_API_URL` do app. Nos builds do EAS, cadastre
-   com `bunx eas-cli env:create` (ou pela página do projeto no expo.dev) para valer em todos os perfis.
+   com `npx eas-cli@latest env:set` (ou pela página do projeto no expo.dev), no ambiente `production`.
+
+### Staging
+
+O projeto tem um segundo ambiente, `staging`, criado duplicando o `production` (seletor de
+ambiente no topo → **New Environment**). Ele tem a sua própria API, o seu PostgreSQL (banco
+separado) e o seu domínio (`https://focaai-api-staging.up.railway.app`), e faz deploy da branch
+`develop`, enquanto o `production` faz da `main`:
+
+1. Abra o PR para `develop`. Depois do merge, o staging sobe sozinho.
+2. Teste no app de staging (perfil `staging` do EAS, que usa essa URL).
+3. Abra o PR de `develop` para `main`. Depois do merge, a produção sobe.
+
+As variáveis de cada ambiente são independentes. No staging, o `JWT_SECRET` é outro, para a sessão
+de um ambiente não valer no outro, e o `GOOGLE_CLIENT_IDS` leva os client IDs do app de staging
+(`com.focaai.app.staging`). A branch de cada ambiente fica em **Settings → Source → Branch
+connected to ...** do serviço da API.
 
 O schema do banco é criado e atualizado pelo Flyway a cada deploy. Na primeira subida, a API
 baixa em segundo plano as provas do ENEM que faltam (alguns minutos; o primeiro simulado de cada
