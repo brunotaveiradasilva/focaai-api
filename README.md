@@ -78,6 +78,12 @@ vestibular novo com edital mapeado ganha `edital.<id>.json` e `prova.<id>.json`,
 `Catalogo.VESTIBULARES_MAPEADOS` e em `editalDaProva` no `catalogo.json`. Unicamp e Unesp ainda
 não têm edital mapeado: todos os assuntos contam como "citado em parte" (peso 0,5).
 
+Cada vestibular em `vestibulares` traz `courses`, os cursos (ids de `cursos`) que ele oferece na
+edição 2027: Fuvest pelo Guia de Carreiras, Unicamp pela página de cursos da Comvest, Unesp pelo
+Manual do Candidato e UFMS pelo Anexo II do Edital 344/2026. Os cursos são agrupados pelo nome, sem
+campus nem habilitação (as habilitações de Música viram "Música"). Os ids antigos de `cursos` não
+mudam de concorrência nem de foco, porque estão nos perfis salvos.
+
 O mapeamento da Fuvest saiu do Guia de Provas e Programas da edição 2026 (o de 2027 não estava
 publicado em PDF) e ainda não foi revisado por professor; o trecho de Sociologia do guia foi lido
 só até a habilidade 14.

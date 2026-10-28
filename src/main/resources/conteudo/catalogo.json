@@ -89,13 +89,208 @@
   ],
   "cursos": [
     {
-      "id": "medicina",
-      "name": "Medicina",
-      "tier": "muito-alta",
+      "id": "administracao",
+      "name": "Administração",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "por"
+      ]
+    },
+    {
+      "id": "adm-publica",
+      "name": "Administração Pública / Gestão de Políticas Públicas",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "geo",
+        "red"
+      ]
+    },
+    {
+      "id": "agrarias",
+      "name": "Agronomia (Engenharia Agronômica)",
+      "tier": "moderada",
       "focus": [
         "bio",
-        "qui",
+        "qui"
+      ]
+    },
+    {
+      "id": "ads",
+      "name": "Análise e Desenvolvimento de Sistemas (tecnólogo)",
+      "tier": "moderada",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "arquitetura",
+      "name": "Arquitetura e Urbanismo",
+      "tier": "alta",
+      "focus": [
+        "mat",
+        "his"
+      ]
+    },
+    {
+      "id": "arquivologia",
+      "name": "Arquivologia",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "his"
+      ]
+    },
+    {
+      "id": "artes-cenicas",
+      "name": "Artes Cênicas / Teatro",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "por"
+      ]
+    },
+    {
+      "id": "artes-visuais",
+      "name": "Artes Visuais",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "por"
+      ]
+    },
+    {
+      "id": "astronomia",
+      "name": "Astronomia",
+      "tier": "moderada",
+      "focus": [
+        "fis",
+        "mat"
+      ]
+    },
+    {
+      "id": "audiovisual",
+      "name": "Audiovisual / Midialogia (cinema, rádio e TV)",
+      "tier": "media",
+      "focus": [
+        "por",
         "red"
+      ]
+    },
+    {
+      "id": "biblioteconomia",
+      "name": "Biblioteconomia / Ciência da Informação",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "his"
+      ]
+    },
+    {
+      "id": "biomedicina",
+      "name": "Biomedicina / Ciências Biomédicas",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "biotecnologia",
+      "name": "Biotecnologia",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "computacao",
+      "name": "Ciência da Computação",
+      "tier": "alta",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "ciencia-dados",
+      "name": "Ciência de Dados / Inteligência Artificial",
+      "tier": "media",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "ciencia-alimentos",
+      "name": "Ciência dos Alimentos",
+      "tier": "moderada",
+      "focus": [
+        "qui",
+        "bio"
+      ]
+    },
+    {
+      "id": "biologia",
+      "name": "Ciências Biológicas",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "contabeis",
+      "name": "Ciências Contábeis",
+      "tier": "moderada",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "ciencias-esporte",
+      "name": "Ciências do Esporte",
+      "tier": "moderada",
+      "focus": [
+        "bio"
+      ]
+    },
+    {
+      "id": "economia",
+      "name": "Ciências Econômicas",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "his"
+      ]
+    },
+    {
+      "id": "ciencias-sociais",
+      "name": "Ciências Sociais",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "geo",
+        "red"
+      ]
+    },
+    {
+      "id": "danca",
+      "name": "Dança",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "por"
+      ]
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "his"
       ]
     },
     {
@@ -109,78 +304,29 @@
       ]
     },
     {
-      "id": "odontologia",
-      "name": "Odontologia",
-      "tier": "alta",
+      "id": "ecologia",
+      "name": "Ecologia",
+      "tier": "moderada",
       "focus": [
         "bio",
-        "qui"
+        "geo"
       ]
     },
     {
-      "id": "veterinaria",
-      "name": "Medicina Veterinária",
-      "tier": "alta",
+      "id": "educacao-fisica",
+      "name": "Educação Física",
+      "tier": "moderada",
       "focus": [
-        "bio",
-        "qui"
+        "bio"
       ]
     },
     {
-      "id": "psicologia",
-      "name": "Psicologia",
-      "tier": "alta",
+      "id": "educomunicacao",
+      "name": "Educomunicação",
+      "tier": "moderada",
       "focus": [
-        "bio",
-        "red",
-        "por"
-      ]
-    },
-    {
-      "id": "computacao",
-      "name": "Ciência da Computação",
-      "tier": "alta",
-      "focus": [
-        "mat",
-        "fis"
-      ]
-    },
-    {
-      "id": "arquitetura",
-      "name": "Arquitetura e Urbanismo",
-      "tier": "alta",
-      "focus": [
-        "mat",
-        "his"
-      ]
-    },
-    {
-      "id": "ri",
-      "name": "Relações Internacionais",
-      "tier": "alta",
-      "focus": [
-        "his",
-        "geo",
+        "por",
         "red"
-      ]
-    },
-    {
-      "id": "eng-civil",
-      "name": "Engenharia Civil",
-      "tier": "media",
-      "focus": [
-        "mat",
-        "fis"
-      ]
-    },
-    {
-      "id": "engenharias",
-      "name": "Outras engenharias",
-      "tier": "media",
-      "focus": [
-        "mat",
-        "fis",
-        "qui"
       ]
     },
     {
@@ -193,11 +339,330 @@
       ]
     },
     {
+      "id": "eng-aeronautica",
+      "name": "Engenharia Aeronáutica",
+      "tier": "alta",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-agricola",
+      "name": "Engenharia Agrícola",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "bio"
+      ]
+    },
+    {
+      "id": "eng-ambiental",
+      "name": "Engenharia Ambiental",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "qui",
+        "bio"
+      ]
+    },
+    {
+      "id": "eng-bioprocessos",
+      "name": "Engenharia Bioquímica / de Bioprocessos",
+      "tier": "moderada",
+      "focus": [
+        "qui",
+        "bio"
+      ]
+    },
+    {
+      "id": "eng-cartografica",
+      "name": "Engenharia Cartográfica e de Agrimensura",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "geo"
+      ]
+    },
+    {
+      "id": "eng-civil",
+      "name": "Engenharia Civil",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-alimentos",
+      "name": "Engenharia de Alimentos",
+      "tier": "moderada",
+      "focus": [
+        "qui",
+        "mat"
+      ]
+    },
+    {
+      "id": "eng-biossistemas",
+      "name": "Engenharia de Biossistemas",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "bio"
+      ]
+    },
+    {
+      "id": "eng-computacao",
+      "name": "Engenharia de Computação",
+      "tier": "alta",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-controle-automacao",
+      "name": "Engenharia de Controle e Automação",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-energia",
+      "name": "Engenharia de Energia",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-manufatura",
+      "name": "Engenharia de Manufatura",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-materiais",
+      "name": "Engenharia de Materiais",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis",
+        "qui"
+      ]
+    },
+    {
+      "id": "eng-minas",
+      "name": "Engenharia de Minas",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis",
+        "qui"
+      ]
+    },
+    {
+      "id": "eng-pesca",
+      "name": "Engenharia de Pesca",
+      "tier": "moderada",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "eng-petroleo",
+      "name": "Engenharia de Petróleo",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis",
+        "qui"
+      ]
+    },
+    {
+      "id": "eng-producao",
+      "name": "Engenharia de Produção",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-software",
+      "name": "Engenharia de Software",
+      "tier": "media",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "eng-telecom",
+      "name": "Engenharia de Telecomunicações",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-transportes",
+      "name": "Engenharia de Transportes",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-eletrica",
+      "name": "Engenharia Elétrica / Eletrônica",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-fisica",
+      "name": "Engenharia Física",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-florestal",
+      "name": "Engenharia Florestal",
+      "tier": "moderada",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "eng-geologica",
+      "name": "Engenharia Geológica",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "geo"
+      ]
+    },
+    {
+      "id": "eng-madeireira",
+      "name": "Engenharia Industrial Madeireira",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-mecanica",
+      "name": "Engenharia Mecânica",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-mecatronica",
+      "name": "Engenharia Mecatrônica",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-metalurgica",
+      "name": "Engenharia Metalúrgica",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis",
+        "qui"
+      ]
+    },
+    {
+      "id": "eng-naval",
+      "name": "Engenharia Naval e Oceânica",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-nuclear",
+      "name": "Engenharia Nuclear",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "fis"
+      ]
+    },
+    {
+      "id": "eng-quimica",
+      "name": "Engenharia Química",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "qui"
+      ]
+    },
+    {
+      "id": "estatistica",
+      "name": "Estatística",
+      "tier": "moderada",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
       "id": "farmacia",
       "name": "Farmácia",
       "tier": "media",
       "focus": [
         "qui",
+        "bio"
+      ]
+    },
+    {
+      "id": "filosofia",
+      "name": "Filosofia",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "red"
+      ]
+    },
+    {
+      "id": "fisica",
+      "name": "Física",
+      "tier": "moderada",
+      "focus": [
+        "fis",
+        "mat"
+      ]
+    },
+    {
+      "id": "fisica-medica",
+      "name": "Física Médica",
+      "tier": "media",
+      "focus": [
+        "fis",
+        "mat",
         "bio"
       ]
     },
@@ -210,44 +675,115 @@
       ]
     },
     {
-      "id": "nutricao",
-      "name": "Nutrição",
+      "id": "fonoaudiologia",
+      "name": "Fonoaudiologia",
       "tier": "media",
       "focus": [
         "bio",
+        "por"
+      ]
+    },
+    {
+      "id": "geofisica",
+      "name": "Geofísica",
+      "tier": "moderada",
+      "focus": [
+        "fis",
+        "mat"
+      ]
+    },
+    {
+      "id": "geografia",
+      "name": "Geografia",
+      "tier": "moderada",
+      "focus": [
+        "geo",
+        "his"
+      ]
+    },
+    {
+      "id": "geologia",
+      "name": "Geologia",
+      "tier": "moderada",
+      "focus": [
+        "geo",
         "qui"
       ]
     },
     {
-      "id": "biomedicina",
-      "name": "Biomedicina",
-      "tier": "media",
+      "id": "gerontologia",
+      "name": "Gerontologia",
+      "tier": "moderada",
       "focus": [
-        "bio",
-        "qui"
+        "bio"
       ]
     },
     {
-      "id": "administracao",
-      "name": "Administração",
-      "tier": "media",
+      "id": "gestao-ambiental",
+      "name": "Gestão Ambiental",
+      "tier": "moderada",
+      "focus": [
+        "geo",
+        "bio"
+      ]
+    },
+    {
+      "id": "gestao-comercial",
+      "name": "Gestão Comercial (tecnólogo)",
+      "tier": "moderada",
       "focus": [
         "mat",
         "por"
       ]
     },
     {
-      "id": "economia",
-      "name": "Economia",
-      "tier": "media",
+      "id": "midias-sociais",
+      "name": "Gestão de Mídias Sociais Digitais (tecnólogo)",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "gestao-rh",
+      "name": "Gestão de Recursos Humanos (tecnólogo)",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "servicos-juridicos",
+      "name": "Gestão de Serviços Jurídicos e Notariais (tecnólogo)",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "historia",
+      "name": "História",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "red"
+      ]
+    },
+    {
+      "id": "informatica-biomedica",
+      "name": "Informática Biomédica",
+      "tier": "moderada",
       "focus": [
         "mat",
-        "his"
+        "bio"
       ]
     },
     {
       "id": "comunicacao",
-      "name": "Jornalismo / Publicidade",
+      "name": "Jornalismo",
       "tier": "media",
       "focus": [
         "por",
@@ -255,16 +791,8 @@
       ]
     },
     {
-      "id": "contabeis",
-      "name": "Ciências Contábeis",
-      "tier": "moderada",
-      "focus": [
-        "mat"
-      ]
-    },
-    {
-      "id": "pedagogia",
-      "name": "Pedagogia",
+      "id": "letras",
+      "name": "Letras / Linguística / Tradução",
       "tier": "moderada",
       "focus": [
         "por",
@@ -278,8 +806,225 @@
       "focus": []
     },
     {
-      "id": "agrarias",
-      "name": "Agronomia / Zootecnia",
+      "id": "marketing",
+      "name": "Marketing",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "por"
+      ]
+    },
+    {
+      "id": "matematica",
+      "name": "Matemática / Matemática Aplicada",
+      "tier": "moderada",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "medicina",
+      "name": "Medicina",
+      "tier": "muito-alta",
+      "focus": [
+        "bio",
+        "qui",
+        "red"
+      ]
+    },
+    {
+      "id": "veterinaria",
+      "name": "Medicina Veterinária",
+      "tier": "alta",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "meteorologia",
+      "name": "Meteorologia",
+      "tier": "moderada",
+      "focus": [
+        "fis",
+        "mat"
+      ]
+    },
+    {
+      "id": "musica",
+      "name": "Música",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "por"
+      ]
+    },
+    {
+      "id": "nutricao",
+      "name": "Nutrição",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "obstetricia",
+      "name": "Obstetrícia",
+      "tier": "media",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "oceanografia",
+      "name": "Oceanografia",
+      "tier": "moderada",
+      "focus": [
+        "bio",
+        "geo"
+      ]
+    },
+    {
+      "id": "odontologia",
+      "name": "Odontologia",
+      "tier": "alta",
+      "focus": [
+        "bio",
+        "qui"
+      ]
+    },
+    {
+      "id": "engenharias",
+      "name": "Outras engenharias",
+      "tier": "media",
+      "focus": [
+        "mat",
+        "fis",
+        "qui"
+      ]
+    },
+    {
+      "id": "pedagogia",
+      "name": "Pedagogia",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "processos-gerenciais",
+      "name": "Processos Gerenciais (tecnólogo)",
+      "tier": "moderada",
+      "focus": [
+        "mat",
+        "por"
+      ]
+    },
+    {
+      "id": "psicologia",
+      "name": "Psicologia",
+      "tier": "alta",
+      "focus": [
+        "bio",
+        "red",
+        "por"
+      ]
+    },
+    {
+      "id": "publicidade",
+      "name": "Publicidade e Propaganda",
+      "tier": "media",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "quimica",
+      "name": "Química",
+      "tier": "moderada",
+      "focus": [
+        "qui",
+        "mat"
+      ]
+    },
+    {
+      "id": "ri",
+      "name": "Relações Internacionais",
+      "tier": "alta",
+      "focus": [
+        "his",
+        "geo",
+        "red"
+      ]
+    },
+    {
+      "id": "relacoes-publicas",
+      "name": "Relações Públicas",
+      "tier": "moderada",
+      "focus": [
+        "por",
+        "red"
+      ]
+    },
+    {
+      "id": "saude-publica",
+      "name": "Saúde Pública",
+      "tier": "moderada",
+      "focus": [
+        "bio",
+        "geo"
+      ]
+    },
+    {
+      "id": "servico-social",
+      "name": "Serviço Social",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "red"
+      ]
+    },
+    {
+      "id": "sistemas-informacao",
+      "name": "Sistemas de Informação",
+      "tier": "media",
+      "focus": [
+        "mat"
+      ]
+    },
+    {
+      "id": "terapia-ocupacional",
+      "name": "Terapia Ocupacional",
+      "tier": "moderada",
+      "focus": [
+        "bio"
+      ]
+    },
+    {
+      "id": "textil-moda",
+      "name": "Têxtil e Moda",
+      "tier": "moderada",
+      "focus": [
+        "his",
+        "qui"
+      ]
+    },
+    {
+      "id": "turismo",
+      "name": "Turismo / Lazer e Turismo",
+      "tier": "moderada",
+      "focus": [
+        "geo",
+        "his"
+      ]
+    },
+    {
+      "id": "zootecnia",
+      "name": "Zootecnia",
       "tier": "moderada",
       "focus": [
         "bio",
@@ -435,19 +1180,278 @@
   "vestibulares": [
     {
       "id": "fuvest",
-      "name": "Fuvest (USP)"
+      "name": "Fuvest (USP)",
+      "courses": [
+        "adm-publica",
+        "administracao",
+        "agrarias",
+        "arquitetura",
+        "artes-cenicas",
+        "artes-visuais",
+        "astronomia",
+        "audiovisual",
+        "biblioteconomia",
+        "biologia",
+        "biomedicina",
+        "biotecnologia",
+        "ciencia-alimentos",
+        "ciencia-dados",
+        "ciencias-sociais",
+        "computacao",
+        "comunicacao",
+        "contabeis",
+        "design",
+        "direito",
+        "economia",
+        "educacao-fisica",
+        "educomunicacao",
+        "enfermagem",
+        "eng-aeronautica",
+        "eng-alimentos",
+        "eng-ambiental",
+        "eng-bioprocessos",
+        "eng-biossistemas",
+        "eng-civil",
+        "eng-computacao",
+        "eng-eletrica",
+        "eng-fisica",
+        "eng-florestal",
+        "eng-materiais",
+        "eng-mecanica",
+        "eng-mecatronica",
+        "eng-metalurgica",
+        "eng-minas",
+        "eng-naval",
+        "eng-nuclear",
+        "eng-petroleo",
+        "eng-producao",
+        "eng-quimica",
+        "estatistica",
+        "farmacia",
+        "filosofia",
+        "fisica",
+        "fisica-medica",
+        "fisioterapia",
+        "fonoaudiologia",
+        "geofisica",
+        "geografia",
+        "geologia",
+        "gerontologia",
+        "gestao-ambiental",
+        "historia",
+        "informatica-biomedica",
+        "letras",
+        "licenciaturas",
+        "marketing",
+        "matematica",
+        "medicina",
+        "meteorologia",
+        "musica",
+        "nutricao",
+        "obstetricia",
+        "oceanografia",
+        "odontologia",
+        "pedagogia",
+        "psicologia",
+        "publicidade",
+        "quimica",
+        "relacoes-publicas",
+        "ri",
+        "saude-publica",
+        "sistemas-informacao",
+        "terapia-ocupacional",
+        "textil-moda",
+        "turismo",
+        "veterinaria",
+        "zootecnia"
+      ]
     },
     {
       "id": "unicamp",
-      "name": "Unicamp"
+      "name": "Unicamp",
+      "courses": [
+        "adm-publica",
+        "administracao",
+        "ads",
+        "arquitetura",
+        "artes-cenicas",
+        "artes-visuais",
+        "audiovisual",
+        "biologia",
+        "ciencia-dados",
+        "ciencias-esporte",
+        "ciencias-sociais",
+        "computacao",
+        "danca",
+        "economia",
+        "educacao-fisica",
+        "enfermagem",
+        "eng-agricola",
+        "eng-alimentos",
+        "eng-ambiental",
+        "eng-civil",
+        "eng-computacao",
+        "eng-controle-automacao",
+        "eng-eletrica",
+        "eng-fisica",
+        "eng-manufatura",
+        "eng-mecanica",
+        "eng-producao",
+        "eng-quimica",
+        "eng-telecom",
+        "eng-transportes",
+        "estatistica",
+        "farmacia",
+        "filosofia",
+        "fisica",
+        "fisica-medica",
+        "fonoaudiologia",
+        "geografia",
+        "geologia",
+        "historia",
+        "letras",
+        "licenciaturas",
+        "matematica",
+        "medicina",
+        "musica",
+        "nutricao",
+        "odontologia",
+        "pedagogia",
+        "quimica",
+        "ri",
+        "sistemas-informacao"
+      ]
     },
     {
       "id": "unesp",
-      "name": "Unesp"
+      "name": "Unesp",
+      "courses": [
+        "adm-publica",
+        "administracao",
+        "agrarias",
+        "arquitetura",
+        "arquivologia",
+        "artes-cenicas",
+        "artes-visuais",
+        "audiovisual",
+        "biblioteconomia",
+        "biologia",
+        "biomedicina",
+        "computacao",
+        "comunicacao",
+        "design",
+        "direito",
+        "ecologia",
+        "economia",
+        "educacao-fisica",
+        "enfermagem",
+        "eng-aeronautica",
+        "eng-alimentos",
+        "eng-ambiental",
+        "eng-bioprocessos",
+        "eng-biossistemas",
+        "eng-cartografica",
+        "eng-civil",
+        "eng-controle-automacao",
+        "eng-eletrica",
+        "eng-energia",
+        "eng-florestal",
+        "eng-madeireira",
+        "eng-materiais",
+        "eng-mecanica",
+        "eng-pesca",
+        "eng-producao",
+        "eng-quimica",
+        "eng-telecom",
+        "estatistica",
+        "farmacia",
+        "filosofia",
+        "fisica",
+        "fisica-medica",
+        "fisioterapia",
+        "fonoaudiologia",
+        "geografia",
+        "geologia",
+        "historia",
+        "letras",
+        "licenciaturas",
+        "matematica",
+        "medicina",
+        "meteorologia",
+        "musica",
+        "nutricao",
+        "odontologia",
+        "pedagogia",
+        "psicologia",
+        "quimica",
+        "relacoes-publicas",
+        "ri",
+        "servico-social",
+        "sistemas-informacao",
+        "terapia-ocupacional",
+        "turismo",
+        "veterinaria",
+        "zootecnia"
+      ]
     },
     {
       "id": "ufms",
-      "name": "UFMS"
+      "name": "UFMS",
+      "courses": [
+        "administracao",
+        "ads",
+        "agrarias",
+        "arquitetura",
+        "artes-visuais",
+        "audiovisual",
+        "biologia",
+        "ciencia-dados",
+        "ciencias-sociais",
+        "computacao",
+        "comunicacao",
+        "contabeis",
+        "direito",
+        "economia",
+        "educacao-fisica",
+        "enfermagem",
+        "eng-alimentos",
+        "eng-ambiental",
+        "eng-civil",
+        "eng-computacao",
+        "eng-eletrica",
+        "eng-fisica",
+        "eng-florestal",
+        "eng-geologica",
+        "eng-producao",
+        "eng-quimica",
+        "eng-software",
+        "farmacia",
+        "filosofia",
+        "fisica",
+        "fisioterapia",
+        "geografia",
+        "gestao-comercial",
+        "gestao-rh",
+        "historia",
+        "letras",
+        "licenciaturas",
+        "matematica",
+        "medicina",
+        "midias-sociais",
+        "musica",
+        "nutricao",
+        "odontologia",
+        "pedagogia",
+        "processos-gerenciais",
+        "psicologia",
+        "quimica",
+        "ri",
+        "servicos-juridicos",
+        "sistemas-informacao",
+        "turismo",
+        "veterinaria",
+        "zootecnia"
+      ]
     }
   ],
   "ciclos": [
